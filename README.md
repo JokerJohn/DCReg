@@ -16,4 +16,6 @@ DCReg: Decoupled Characterization for Robust LiDAR Registration
 
 ![image (19)](./README/image%20(19).png)
 
-![condition_number_comparison](./README/condition_number_comparison.png)
+![optimization_landscape_journal](./README/optimization_landscape_journal.png)
+
+![gradient_magnitude_field](./README/gradient_magnitude_field.png)

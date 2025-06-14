@@ -1,7 +1,7 @@
 
 # DCReg
 
-DCReg: Decoupled Characterization for Robust LiDAR Registration
+DCReg: Decoupled Characterization for Robust LiDAR Registrationgit a
 
 
 
@@ -12,9 +12,9 @@ DCReg: Decoupled Characterization for Robust LiDAR Registration
 
 
 
-![image (20)](./README/image%20(20).png)
+![image-20250614181622696](./README/image-20250614181622696.png)
 
-![image (19)](./README/image%20(19).png)
+![image-20250614181337662](./README/image-20250614181337662.png)
 
 
 

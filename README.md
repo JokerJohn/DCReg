@@ -10,15 +10,15 @@ DCReg: Decoupled Characterization for Robust LiDAR Registration.
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | ![image (22)](./README/image%20(22).png) | ![image (25)](./README/image%20(25).png) | ![image (24)](./README/image%20(24).png) | ![image (23)](./README/image%20(23).png) | ![image (21)](./README/image%20(21).png) |
 
-| Baseline Method                                       | Parametrization | Frame            | *Differentiation*                     | Lib   |
-| ----------------------------------------------------- | --------------- | ---------------- | ------------------------------------- | ----- |
-| [LOAM](https://github.com/laboshinl/loam_velodyne)    | Euler           | Body (右乘更新)  | Jacobian                              | Eigen |
-| [ME-SR(LOAM)](https://github.com/JokerJohn/DCReg)     | R3 * SO3        | Body             | Jacobian                              | Eigen |
-| [SuperLoc](https://github.com/JokerJohn/SuperOdom-M)  | **Quaternions** | Body             | Jacobian + **Autodiff**               | Ceres |
-| [X-ICP](https://github.com/JokerJohn/XICP-M)          | R3 * SO3        | World (左乘更新) | Jacobian + **Autodiff + NumericDiff** | Ceres |
-| [Open3D ICP (O3D)](https://github.com/isl-org/Open3D) | SE3             | World            | Jacobian                              | Eigen |
-| PCL ICP                                               | SE3             | World            | Jacobian                              | Eigen |
-| Ours                                                  | R3 * SO3        | Body             | Jacobian                              | Eigen |
+| Baseline Method                                      | Parametrization | Frame            | *Differentiation*                     | Lib   |
+| ---------------------------------------------------- | --------------- | ---------------- | ------------------------------------- | ----- |
+| [LOAM](https://github.com/laboshinl/loam_velodyne)   | Euler           | Body (右乘更新)  | Jacobian                              | Eigen |
+| [ME-SR(LOAM)](https://github.com/JokerJohn/DCReg)    | R3 * SO3        | Body             | Jacobian                              | Eigen |
+| [SuperLoc](https://github.com/JokerJohn/SuperOdom-M) | **Quaternions** | Body             | Jacobian + **Autodiff**               | Ceres |
+| [X-ICP](https://github.com/JokerJohn/XICP-M)         | R3 * SO3        | World (左乘更新) | Jacobian + **Autodiff + NumericDiff** | Ceres |
+| [Open3D](https://github.com/isl-org/Open3D)          | SE3             | World            | Jacobian                              | Eigen |
+| PCL ICP                                              | SE3             | World            | Jacobian                              | Eigen |
+| Ours                                                 | R3 * SO3        | Body             | Jacobian                              | Eigen |
 
 Different frame and parametrization definition will affect the convergence.  **Autodiff + NumericDiff** are not included in the origin codes of baseline methods.
 

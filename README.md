@@ -10,7 +10,7 @@ DCReg: Decoupled Characterization for Robust LiDAR Registration.
 | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | ![image (22)](./README/image%20(22).png) | ![image (25)](./README/image%20(25).png) | ![image (24)](./README/image%20(24).png) | ![image (23)](./README/image%20(23).png) | ![image (21)](./README/image%20(21).png) |
 
-| Baseline Method                                      | Parametrization | Frame            | *Differentiation*                     | Lib   |
+| Baseline Method                                      | Parametrization | Frame            | **Differentiation**                   | Lib   |
 | ---------------------------------------------------- | --------------- | ---------------- | ------------------------------------- | ----- |
 | [LOAM](https://github.com/laboshinl/loam_velodyne)   | Euler           | Body (右乘更新)  | Jacobian                              | Eigen |
 | [ME-SR(LOAM)](https://github.com/JokerJohn/DCReg)    | R3 * SO(3)      | Body             | Jacobian                              | Eigen |

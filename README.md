@@ -20,7 +20,7 @@ DCReg: Decoupled Characterization for Robust LiDAR Registration.
 | PCL ICP                                               | SE3             | World            | Jacobian                              | Eigen |
 | Ours                                                  | R3 * SO3        | Body             | Jacobian                              | Eigen |
 
-Different frame and parametrization definition will affect the convergence.
+Different frame and parametrization definition will affect the convergence.  **Autodiff + NumericDiff** are not included in the origin codes of baseline methods.
 
 ![image-20250614181622696](./README/image-20250614181622696.png)
 

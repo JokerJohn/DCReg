@@ -1,4 +1,4 @@
-guven timestamp, get the nearest gt pose from gt trajectory in tum.
+given timestamp, get the nearest gt pose from gt trajectory in tum.
 
 
 
@@ -19,3 +19,4 @@ evo_ape tum Parkinglot-2023-10-28-18-59-01_0.005_ins_tum.txt optimized_poses_tum
 ![image-20250624191759392](./README/image-20250624191759392.png)
 
 ![image-20250624191841231](./README/image-20250624191841231.png)
+

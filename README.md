@@ -2,10 +2,10 @@
 
 <h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration System</h1>
 
-[**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup>
+[**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
 [**Jin Wu**](https://zarathustr.github.io/) <sup>3*</sup>
 <br>
- [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup> · [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
+ [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup> and  [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
 
 <sup>1</sup>HKUST&emsp;&emsp;&emsp;<sup>2</sup>NUDT&emsp;&emsp;&emsp;<sup>3</sup>USTB &emsp;&emsp;&emsp;<sup>4</sup>U of T
 <br>
@@ -77,6 +77,7 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 ![image-20250908195304202](./README/image-20250908195304202.png)
 
 <div align="center">
+    
 ![image-20250908195247186](./README/image-20250908195247186.png) 
 </div>
 
@@ -102,8 +103,8 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 
 ## Parameter 
 
-
 <div align="center">
+
 ![image-20250908195629999](./README/image-20250908195629999.png)
 </div>
 

@@ -11,7 +11,7 @@
 <br>
 &dagger;Project lead&emsp;*Corresponding author
 
-<a href="https://arxiv.org/pdf/2408.03723"><img src='https://img.shields.io/badge/ArXiv-DCReg-red' alt='Paper PDF'></a>[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCRegsvg)](https://github.com/JokerJohn/DCReg/issues)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)<a href="https://github.com/JokerJohn/DCReg/blob/main/">
+<a href="https://arxiv.org/pdf/2408.03723"><img src='https://img.shields.io/badge/ArXiv-DCReg-red' alt='Paper PDF'></a>[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/issues)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)<a href="https://github.com/JokerJohn/DCReg/blob/main/">
 
 </div>
 

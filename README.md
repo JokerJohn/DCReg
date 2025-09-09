@@ -26,7 +26,7 @@ that systematically addresses the ill-conditioned registration problems through 
 - Second, within these cleanly subspaces, we develop **quantitative characterization** techniques that establish explicit mappings between mathematical eigenspaces and physical motion directions, providing actionable insights about which specific motions lack constraints. 
 - Finally, leveraging this clean subspace, we design a **targeted mitigation** strategy: a novel preconditioner that selectively stabilizes only the identified ill-conditioned directions while preserving all well-constrained information in observable space. This enables efficient and robust optimization via the Preconditioned Conjugate Gradient method with a single physical interpretable parameter. 
 
-Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improvement in localization accuracy and 5-100 times speedup** over state-of-the-art methods across diverse environments. Our implementation will be available at https://github.com/JokerJohn/DCReg. 
+Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improvement in localization accuracy and 5-100 times speedup** over state-of-the-art methods across diverse environments. 
 
 
 

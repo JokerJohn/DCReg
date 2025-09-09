@@ -111,7 +111,10 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 
 ## Acknowledgment
 
-The authors gratefully acknowledge the valuable contributions that made this work possible. We extend special thanks to [Mr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm implementation.
+The authors gratefully acknowledge the valuable contributions that made this work possible. 
+
+- We extend special thanks to [Mr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. 
+- We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm implementation.
 
 ## Contributors
 

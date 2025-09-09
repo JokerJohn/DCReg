@@ -22,9 +22,9 @@
 In this study, we introduce **DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration), a principled framework
 that systematically addresses the ill-conditioned registration problems through three integrated innovations. 
 
-- First, DCReg achieves reliable ill-conditioning detection by employing a Schur complement decomposition to the hessian matrix. This technique decouples the registration problem into clean rotational and translational subspaces, eliminating coupling effects that mask degeneracy patterns in conventional analyses. 
-- Second, within these cleanly subspaces, we develop quantitative characterization techniques that establish explicit mappings between mathematical eigenspaces and physical motion directions, providing actionable insights about which specific motions lack constraints. 
-- Finally, leveraging this clean subspace, we design a targeted mitigation strategy: a novel preconditioner that selectively stabilizes only the identified ill-conditioned directions while preserving all well-constrained information in observable space. This enables efficient and robust optimization via the Preconditioned Conjugate Gradient method with a single physical interpretable parameter. 
+- First, DCReg achieves **reliable ill-conditioning detection** by employing a Schur complement decomposition to the hessian matrix. This technique decouples the registration problem into clean rotational and translational subspaces, eliminating coupling effects that mask degeneracy patterns in conventional analyses. 
+- Second, within these cleanly subspaces, we develop **quantitative characterization** techniques that establish explicit mappings between mathematical eigenspaces and physical motion directions, providing actionable insights about which specific motions lack constraints. 
+- Finally, leveraging this clean subspace, we design a **targeted mitigation** strategy: a novel preconditioner that selectively stabilizes only the identified ill-conditioned directions while preserving all well-constrained information in observable space. This enables efficient and robust optimization via the Preconditioned Conjugate Gradient method with a single physical interpretable parameter. 
 
 Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improvement in localization accuracy and 5-100 times speedup** over state-of-the-art methods across diverse environments. Our implementation will be available at https://github.com/JokerJohn/DCReg. 
 
@@ -77,7 +77,7 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 ![image-20250908195304202](./README/image-20250908195304202.png)
 
 <div align="center">
-    
+
 ![image-20250908195247186](./README/image-20250908195247186.png) 
 </div>
 
@@ -108,3 +108,12 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 ![image-20250908195629999](./README/image-20250908195629999.png)
 </div>
 
+## Acknowledgment
+
+The authors gratefully acknowledge the valuable contributions that made this work possible. We extend special thanks to [Mr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm implementation.
+
+## Contributors
+
+<a href="https://github.com/JokerJohn/DCReg/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=JokerJohn/DCReg" />
+</a>

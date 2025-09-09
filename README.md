@@ -4,7 +4,7 @@
 [**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
 [**Jin Wu**](https://zarathustr.github.io/) <sup>3*</sup>
 <br>
- [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup> and  [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
+ [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup>· [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
 
 <sup>1</sup>HKUST&emsp;&emsp;&emsp;<sup>2</sup>NUDT&emsp;&emsp;&emsp;<sup>3</sup>USTB &emsp;&emsp;&emsp;<sup>4</sup>U of T
 <br>

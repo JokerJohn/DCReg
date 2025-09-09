@@ -1,14 +1,38 @@
-# DCReg
+<div align="center">
+
+<h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration System</h1>
+
+[**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup>
+[**Jin Wu**](https://zarathustr.github.io/) <sup>3*</sup>
+<br>
+ [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup> · [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
+
+<sup>1</sup>HKUST&emsp;&emsp;&emsp;<sup>2</sup>NUDT&emsp;&emsp;&emsp;<sup>3</sup>USTB &emsp;&emsp;&emsp;<sup>4</sup>U of T
+<br>
+&dagger;Project lead&emsp;*Corresponding author
+
+<a href="https://arxiv.org/pdf/2408.03723"><img src='https://img.shields.io/badge/ArXiv-DCReg-red' alt='Paper PDF'></a>[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/MS-Mapping.svg)](https://github.com/JokerJohn/MS-Mapping/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/MS-Mapping.svg)](https://github.com/JokerJohn/MS-Mapping/issues)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)<a href="https://github.com/JokerJohn/MS-Mapping/blob/main/">
+
+</div>
+
+
+
+# [DCReg](https://arxiv.org/abs/2509.06285)
 
 In this study, we introduce **DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration), a principled framework
 that systematically addresses the ill-conditioned registration problems through three integrated innovations. 
 
-Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement in localization accuracy and 5-100 times speedup over state-of-the-art methods across diverse environments. Our implementation will be available at https://github.com/JokerJohn/DCReg. 
+- First, DCReg achieves reliable ill-conditioning detection by employing a Schur complement decomposition to the hessian matrix. This technique decouples the registration problem into clean rotational and translational subspaces, eliminating coupling effects that mask degeneracy patterns in conventional analyses. 
+- Second, within these cleanly subspaces, we develop quantitative characterization techniques that establish explicit mappings between mathematical eigenspaces and physical motion directions, providing actionable insights about which specific motions lack constraints. 
+- Finally, leveraging this clean subspace, we design a targeted mitigation strategy: a novel preconditioner that selectively stabilizes only the identified ill-conditioned directions while preserving all well-constrained information in observable space. This enables efficient and robust optimization via the Preconditioned Conjugate Gradient method with a single physical interpretable parameter. 
 
-![image-20250908194440555](./README/image-20250908194440555.png)
+Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improvement in localization accuracy and 5-100 times speedup** over state-of-the-art methods across diverse environments. Our implementation will be available at https://github.com/JokerJohn/DCReg. 
+
+
 
 ## Timeline
-**2025/09/09:** the preprint paper is online, baseline codes will be published first!
+
+**2025/09/09:** the preprint paper is [online](https://arxiv.org/abs/2509.06285), baseline codes will be published first!
 
 
 
@@ -23,9 +47,9 @@ Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement 
 
 ## Baseline and dataset
 
-
-
-![image-20250908194152203](./README/image-20250908194152203.png)
+| ![image-20250908194440555](./README/image-20250908194440555.png) |
+| ------------------------------------------------------------ |
+| ![image-20250909214128111](./README/image-20250909214128111.png) |
 
 | ![image-20250908194514540](./README/image-20250908194514540.png) | ![image-20250908194526477](./README/image-20250908194526477.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -52,9 +76,9 @@ Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement 
 
 ![image-20250908195304202](./README/image-20250908195304202.png)
 
-| ![image-20250908195247186](./README/image-20250908195247186.png) |
-| ------------------------------------------------------------ |
-
+<div align="center">
+![image-20250908195247186](./README/image-20250908195247186.png) 
+</div>
 
 
 | ![image-20250908195226346](./README/image-20250908195226346.png) | ![image-20250908195236593](./README/image-20250908195236593.png) |
@@ -78,6 +102,8 @@ Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement 
 
 ## Parameter 
 
-| ![image-20250908195629999](./README/image-20250908195629999.png) |
-| ------------------------------------------------------------ |
+
+<div align="center">
+![image-20250908195629999](./README/image-20250908195629999.png)
+</div>
 

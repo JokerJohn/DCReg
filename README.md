@@ -7,6 +7,11 @@ Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement 
 
 ![image-20250908194440555](./README/image-20250908194440555.png)
 
+## Timeline
+**2025/09/09:** the preprint paper is online, baseline codes will be published first!
+
+
+
 ## Methods
 
 ![image-20250908194217193](./README/image-20250908194217193.png)
@@ -15,8 +20,6 @@ Extensive experiments demonstrate DCReg achieves at least 20% - 50% improvement 
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 
-## Timeline
-*2025/09/09:* the preprint paper is online, baseline codes will be published first!
 
 ## Baseline and dataset
 

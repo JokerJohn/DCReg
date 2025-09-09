@@ -17,9 +17,7 @@
 
 
 
-# [DCReg](https://arxiv.org/abs/2509.06285)
-
-In this study, we introduce **DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration), a principled framework
+In this study, we introduce **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration), a principled framework
 that systematically addresses the ill-conditioned registration problems through three integrated innovations. 
 
 - First, DCReg achieves **reliable ill-conditioning detection** by employing a Schur complement decomposition to the hessian matrix. This technique decouples the registration problem into clean rotational and translational subspaces, eliminating coupling effects that mask degeneracy patterns in conventional analyses. 

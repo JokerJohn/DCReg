@@ -1,6 +1,5 @@
 <div align="center">
-
-<h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration System</h1>
+<h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration</h1>
 
 [**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
 [**Jin Wu**](https://zarathustr.github.io/) <sup>3*</sup>
@@ -113,7 +112,7 @@ Extensive experiments demonstrate **DCReg** achieves **at least 20% - 50% improv
 
 The authors gratefully acknowledge the valuable contributions that made this work possible. 
 
-- We extend special thanks to [Mr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. 
+- We extend special thanks to [Dr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. 
 - We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm implementation.
 
 ## Contributors

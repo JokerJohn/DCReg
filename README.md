@@ -25,8 +25,10 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 <div align="center">
  
-![pk01_dcreg_seg](https://github.com/user-attachments/assets/8391c3ce-45dc-4b86-aed7-b496dc33ba87)
+
 </div>
+
+
 
 
 
@@ -66,6 +68,11 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ### Real-world Performance Evaluation
 
 ### localization and mapping
+
+| ![pk01_dcreg_seg](https://github.com/user-attachments/assets/8391c3ce-45dc-4b86-aed7-b496dc33ba87) | ![dcreg_x20](https://github.com/user-attachments/assets/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16)|
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+
 
 ![image-20250908195036175](./README/image-20250908195036175.png)
 

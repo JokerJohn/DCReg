@@ -23,12 +23,6 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 
 
-<div align="center">
- 
-
-</div>
-
-
 
 
 

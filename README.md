@@ -23,8 +23,8 @@
 
 **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework that addresses ill-conditioned point cloud registration problems, achieving **20% - 50% accuracy improvement and 5-100 times** speedup over state-of-the-art methods.
 
-- **Reliable ill-conditioning detection**: Decouples rotation and translation via Schur complement decomposition for ill-conditioning detection， eliminating coupling effects that mask degeneracy patterns.
-- **Quantitative characterization**: Maps mathematical eigenspaces to physical motion space, revealing which and to what extent specific motions lack constraints
+- **Reliable ill-conditioning detection**: Decouples rotation and translation via Schur complement decomposition for ill-conditioning detection，eliminating coupling effects that mask degeneracy patterns.
+- **Quantitative characterization**: Maps mathematical eigenspace to physical motion space, revealing which and to what extent specific motions lack constraints
 - **Targeted mitigation**: Employs targeted preconditioning that stabilizes only degenerate directions while preserving observable information.
 
 DCReg seamlessly integrates with existing registration pipelines through an efficient PCG solver with a single interpretable parameter.
@@ -62,7 +62,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 | Scenarios                                                    | Characterization                                             | Features                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Planer degeneracy, <br/>**t0-t1-r2** degenerate,<br/> the main <br/>components<br/> of motion <br/>sources are <br/> **X-Y-Yaw**. e.g.<br/> t0 = 90.0% X <br/>+ xx %Y + xx% Z. <br/>the related <br/>angles of<br/> X with t0 <br/>is 4.5 deg, that <br/>means X<br/> should be the <br/>main reason. <br/>**see figure 16.** </span> |
+| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Plain degeneracy, <br/>**t0-t1-r2** degenerate,<br/> the main <br/>components<br/> of motion <br/>sources are <br/> **X-Y-Yaw**. e.g.<br/> t0 = 90.0% X <br/>+ xx %Y + xx% Z. <br/>the related <br/>angles of<br/> X with t0 <br/>is 4.5 deg, that <br/>means X<br/> should be the <br/>main reason. <br/>**see figure 16.** </span> |
 | ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) | <span style="font-size:12px;">narrow stairs, spares<br/> features cause this <br/>degeneracy. sometimes<br/> t2, sometimes r0-r1. <br/>**see <br/>figure 17.**</span> |
 | ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) | <span style="font-size:12px;">narrow passage, <br/>r0-t0 or r0, depends <br/>on your<br/> measurements.</span> |
 | ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) | <span style="font-size:12px;">rich features but <br/>within narrow <br/>environments. <br/>r0-t0 or r0.</span> |
@@ -97,6 +97,8 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ### Degeneracy Detection
 
 ![image-20250908195304202](./README/image-20250908195304202.png)
+
+
 
 <div align="center">
 ![image-20250908195247186](./README/image-20250908195247186.png) 

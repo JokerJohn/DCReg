@@ -55,12 +55,12 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ![image-20250910212340395](./README/image-20250910212340395.png)
 
-| scenario                                                     | Characterization                                             | features                                                     |
+| Scenarios                                                    | Characterization                                             | Features                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | Planer degeneracy, **t0-t1-r2** degenerate, the main components of motion sources are  **X-Y-Yaw**. e.g. t0 = 90.0% X + xx %Y + xx% Z. the related angles of X with t0 is 4.5 deg, that means X should be the main reason. **see figure 16.** |
-| ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) | narrow stairs, spares features cause this degeneracy. sometimes t2, sometimes r0-r1. **see figure 17.** |
-| ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) | narrow passage, r0-t0 or r0, depends on your measurements.   |
-| ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) | rich features but within narrow environments. r0-t0 or r0.   |
+| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Planer degeneracy, **t0-t1-r2** degenerate, the main components of motion sources are  **X-Y-Yaw**. e.g. t0 = 90.0% X + xx %Y + xx% Z. the related angles of X with t0 is 4.5 deg, that means X should be the main reason. **see figure 16.** </span>|
+| ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) |  <span style="font-size:12px;">narrow stairs, spares features cause this degeneracy. sometimes t2, sometimes r0-r1. **see figure 17.**</span> |
+| ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) |  <span style="font-size:12px;">narrow passage, r0-t0 or r0, depends on your measurements.</span>   |
+| ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) |  <span style="font-size:12px;">rich features but within narrow environments. r0-t0 or r0.</span>   |
 
 
 
@@ -94,7 +94,6 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ![image-20250908195304202](./README/image-20250908195304202.png)
 
 <div align="center">
-
 ![image-20250908195247186](./README/image-20250908195247186.png) 
 </div>
 

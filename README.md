@@ -13,7 +13,7 @@
 
 <a href="https://arxiv.org/abs/2509.06285"><img src='https://img.shields.io/badge/ArXiv-DCReg-red' alt='Paper PDF'></a>[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/issues)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)<a href="https://github.com/JokerJohn/DCReg/blob/main/">
 
-
+</div>
 
 **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework that addresses ill-conditioned point cloud registration problems, achieving **20% - 50% accuracy improvement and 5-100 times** speedup over state-of-the-art methods.
 - **Reliable ill-conditioning detection**: Decouples rotation and translation via Schur complement decomposition for reliable ill-conditioning detection， eliminating coupling effects that mask degeneracy patterns in conventional analyses.

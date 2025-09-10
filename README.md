@@ -1,4 +1,5 @@
 <div align="center">
+ 
 <h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration</h1>
 
 [**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
@@ -20,9 +21,6 @@
 - **Targeted mitigation**: Employs targeted preconditioning that stabilizes only degenerate directions while preserving observable information via eigen clamping.
 
 DCReg seamlessly integrates with existing registration pipelines through an efficient PCG solver with a single interpretable parameter.
-
-
-
 
 
 

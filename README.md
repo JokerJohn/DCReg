@@ -57,10 +57,10 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 | Scenarios                                                    | Characterization                                             | Features                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Planer degeneracy, **t0-t1-r2** degenerate, the main components of motion sources are  **X-Y-Yaw**. e.g. t0 = 90.0% X + xx %Y + xx% Z. the related angles of X with t0 is 4.5 deg, that means X should be the main reason. **see figure 16.** </span>|
-| ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) |  <span style="font-size:12px;">narrow stairs, spares features cause this degeneracy. sometimes t2, sometimes r0-r1. **see figure 17.**</span> |
-| ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) |  <span style="font-size:12px;">narrow passage, r0-t0 or r0, depends on your measurements.</span>   |
-| ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) |  <span style="font-size:12px;">rich features but within narrow environments. r0-t0 or r0.</span>   |
+| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Planer degeneracy, <br/>**t0-t1-r2** degenerate,<br/> the main components of <br/>motion sources are <br/> **X-Y-Yaw**. e.g. t0 = 90.0% X <br/>+ xx %Y + xx% Z. <br/>the related angles of<br/> X with t0 <br/>is 4.5 deg, that <br/>means X<br/> should be the <br/>main reason. <br/>**see figure 16.** </span> |
+| ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) | <span style="font-size:12px;">narrow stairs, spares<br/> features cause this <br/>degeneracy. sometimes t2, <br/>sometimes r0-r1. **see <br/>figure 17.**</span> |
+| ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) | <span style="font-size:12px;">narrow passage, <br/>r0-t0 or r0, depends <br/>on your measurements.</span> |
+| ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) | <span style="font-size:12px;">rich features but <br/>within narrow <br/>environments. <br/>r0-t0 or r0.</span> |
 
 
 

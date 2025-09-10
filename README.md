@@ -17,7 +17,6 @@
 
 
 **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework that addresses ill-conditioned point cloud registration problems, achieving **20% - 50% accuracy improvement and 5-100 times** speedup over state-of-the-art methods.
-## Key Features
 - **Reliable ill-conditioning detection**: Decouples rotation and translation via Schur complement decomposition for reliable ill-conditioning detection， eliminating coupling effects that mask degeneracy patterns in conventional analyses.
 - **Quantitative characterization**: Maps mathematical eigenspaces to physical motion directions, revealing which and to what extent specific motions lack constraints
 - **Targeted mitigation**: Employs targeted preconditioning that stabilizes only degenerate directions while preserving observable information via eigen clamping.

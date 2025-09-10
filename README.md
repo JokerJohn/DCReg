@@ -16,6 +16,7 @@
 </div>
 
 **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework that addresses ill-conditioned point cloud registration problems, achieving **20% - 50% accuracy improvement and 5-100 times** speedup over state-of-the-art methods.
+
 - **Reliable ill-conditioning detection**: Decouples rotation and translation via Schur complement decomposition for reliable ill-conditioning detection， eliminating coupling effects that mask degeneracy patterns in conventional analyses.
 - **Quantitative characterization**: Maps mathematical eigenspaces to physical motion directions, revealing which and to what extent specific motions lack constraints
 - **Targeted mitigation**: Employs targeted preconditioning that stabilizes only degenerate directions while preserving observable information via eigen clamping.
@@ -48,6 +49,21 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 | ![image-20250908194514540](./README/image-20250908194514540.png) | ![image-20250908194526477](./README/image-20250908194526477.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
+
+
+## Video demo
+
+![image-20250910212340395](./README/image-20250910212340395.png)
+
+| scenario                                                     | Characterization                                             | features                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | Planer degeneracy, **t0-t1-r2** degenerate, the main components of motion sources are  **X-Y-Yaw**. e.g. t0 = 90.0% X + xx %Y + xx% Z. the related angles of X with t0 is 4.5 deg, that means X should be the main reason. **see figure 16.** |
+| ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) | narrow stairs, spares features cause this degeneracy. sometimes t2, sometimes r0-r1. **see figure 17.** |
+| ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) | narrow passage, r0-t0 or r0, depends on your measurements.   |
+| ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) | rich features but within narrow environments. r0-t0 or r0.   |
+
+
+
 ### Controlled Simulation Analysis
 
 | ![image-20250908194819193](./README/image-20250908194819193.png) |
@@ -60,11 +76,6 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ### Real-world Performance Evaluation
 
 ### localization and mapping
-
-| ![pk01_dcreg_seg](https://github.com/user-attachments/assets/8391c3ce-45dc-4b86-aed7-b496dc33ba87) | ![dcreg_x20](https://github.com/user-attachments/assets/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16)|
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-
-
 
 ![image-20250908195036175](./README/image-20250908195036175.png)
 

@@ -132,6 +132,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ## Parameter 
 
 <div align="center">
+    
 ![image-20250908195629999](./README/image-20250908195629999.png)
 </div>
 

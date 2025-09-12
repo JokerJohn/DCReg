@@ -132,11 +132,29 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ## Parameter 
 
 <div align="center">
-    
+
+​    
+
 ![image-20250908195629999](./README/image-20250908195629999.png)
 </div>
 
 
+
+## Citations
+
+For referencing our work, please use:
+
+```
+@misc{hu2025dcreg,
+      title={DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration}, 
+      author={Xiangcheng Hu and Xieyuanli Chen and Mingkai Jia and Jin Wu and Ping Tan and Steven L. Waslander},
+      year={2025},
+      eprint={2509.06285},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2509.06285}, 
+}
+```
 
 ## Acknowledgment
 

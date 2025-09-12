@@ -39,9 +39,9 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ## Methods
 
-![image-20250908194217193](./README/image-20250908194217193.png)
+![image-20250913000818366](./README/image-20250913000818366.png)
 
-| ![image-20250908194259196](./README/image-20250908194259196.png) | ![image-20250908194344328](./README/image-20250908194344328.png) |
+| ![image-20250913001002278](./README/image-20250913001002278.png) | ![image-20250913000856227](./README/image-20250913000856227.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 

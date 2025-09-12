@@ -2,10 +2,10 @@
 
 <h1>DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration</h1>
 
-[**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2&dagger;</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
+[**Xiangcheng Hu**](https://github.com/JokerJohn)<sup>1</sup> · [**Xieyuanli Chen**](https://chen-xieyuanli.github.io/)<sup>2</sup> · [**Mingkai Jia**](https://scholar.google.com/citations?user=fcpTdvcAAAAJ&hl=en)<sup>1</sup> ·
 [**Jin Wu**](https://zarathustr.github.io/) <sup>3*</sup>
 <br>
- [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup>· [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4</sup>
+ [**Ping Tan**](https://facultyprofiles.hkust.edu.hk/profiles.php?profile=ping-tan-pingtan#publications)<sup>1</sup>· [**Steven L. Waslander**](https://www.trailab.utias.utoronto.ca/steven-waslander)<sup>4&dagger;</sup>
 
 <sup>1</sup>HKUST&emsp;&emsp;&emsp;<sup>2</sup>NUDT&emsp;&emsp;&emsp;<sup>3</sup>USTB &emsp;&emsp;&emsp;<sup>4</sup>U of T
 <br>
@@ -60,9 +60,9 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ![image-20250910212340395](./README/image-20250910212340395.png)
 
-| Scenarios                                                    | Characterization                                             | Features                                                     |
+| Scenarios                                                    | Characterization Example                                     | Features                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Plain degeneracy, <br/>**t0-t1-r2** degenerate,<br/> the main <br/>components<br/> of motion <br/>sources are <br/> **X-Y-Yaw**. e.g.<br/> t0 = 90.0% X <br/>+ xx %Y + xx% Z. <br/>the related <br/>angles of<br/> X with t0 <br/>is 4.5 deg, that <br/>means X<br/> should be the <br/>main reason. <br/>**see figure 16.** </span> |
+| ![pk01_dcreg_seg](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![image-20250910213549613](./README/image-20250910213549613.png) | <span style="font-size:12px;">Planar degeneracy, <br/>**t0-t1-r2** degenerate,<br/> the main <br/>components<br/> of motion <br/>sources are <br/> **X-Y-Yaw**. e.g.<br/> t0 = 90.0% X <br/>+ xx %Y + xx% Z. <br/>the related <br/>angles of<br/> X with t0 <br/>is 4.5 deg, that <br/>means X<br/> should be the <br/>main reason. <br/>**see figure 16.** </span> |
 | ![](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif)       | ![image-20250910213208822](./README/image-20250910213208822.png) | <span style="font-size:12px;">narrow stairs, spares<br/> features cause this <br/>degeneracy. sometimes<br/> t2, sometimes r0-r1. <br/>**see <br/>figure 17.**</span> |
 | ![corridor_dcreg_x5](./README/corridor_dcreg_x5.gif)         | ![image-20250910213259165](./README/image-20250910213259165.png) | <span style="font-size:12px;">narrow passage, <br/>r0-t0 or r0, depends <br/>on your<br/> measurements.</span> |
 | ![dcreg_x50](./README/dcreg_x50.gif)                         | ![image-20250910213415142](./README/image-20250910213415142.png) | <span style="font-size:12px;">rich features but <br/>within narrow <br/>environments. <br/>r0-t0 or r0.</span> |
@@ -103,6 +103,13 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 <div align="center">
 
 
+
+
+
+​    
+
+
+
 ![image-20250908195247186](./README/image-20250908195247186.png) 
 </div>
 
@@ -125,9 +132,10 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 ## Parameter 
 
 <div align="center">
-
 ![image-20250908195629999](./README/image-20250908195629999.png)
 </div>
+
+
 
 ## Acknowledgment
 

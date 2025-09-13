@@ -11,7 +11,7 @@
 <br>
 &dagger;Project lead&emsp;*Corresponding author
 
-<a href="https://arxiv.org/abs/2509.06285"><img src='https://img.shields.io/badge/arXiv-2509.06285-b31b1b' alt='arXiv'></a>[![video](https://img.shields.io/badge/Video-Bilibili-74b9ff?logo=bilibili&logoColor=red)]( https://www.bilibili.com/video/BV1jsHQzCEra/?share_source=copy_web)[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/issues)[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)<a href="https://github.com/JokerJohn/DCReg/blob/main/">
+<a href="https://arxiv.org/abs/2509.06285"><img src='https://img.shields.io/badge/arXiv-2509.06285-b31b1b' alt='arXiv'></a>[![video](https://img.shields.io/badge/Video-Bilibili-74b9ff?logo=bilibili&logoColor=red)]( https://www.bilibili.com/video/BV1jsHQzCEra/?share_source=copy_web)[![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers) [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/issues)
 
 </div>
 

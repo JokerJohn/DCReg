@@ -15,11 +15,7 @@
 
 </div>
 
-
-
-![image-20250908194440555](./README/image-20250908194440555.png)
-
-
+![image-20250923182814673](./README/image-20250923182814673.png)
 
 **[DCReg](https://arxiv.org/abs/2509.06285)** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework that addresses ill-conditioned point cloud registration problems, achieving **20% - 50% accuracy improvement and 5-100 times** speedup over state-of-the-art methods.
 

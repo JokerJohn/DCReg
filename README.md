@@ -39,13 +39,13 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ### Dependency (Test on Unbuntu 20.04)
 
-- Open3D 0.15.1
-- Ceres 2.1.0
-- yaml-cpp 0.6.2
+- [Open3D 0.15.1](https://github.com/isl-org/Open3D/tree/v0.15.1)
+- https://github.com/ceres-solver/ceres-solver/tree/2.1.0
+- [yaml-cpp 0.6.2](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.6.2)
 - OpenMP 201511 
 - TBB  2020.1
-- Eigen 3.3.7
-- PCL 1.10.0
+- [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/releases/3.3.7)
+- [PCL 1.10.0](https://github.com/PointCloudLibrary/pcl/tree/pcl-1.10.0)
 
 ### Install
 

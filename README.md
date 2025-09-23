@@ -74,9 +74,9 @@ if you want to plot the statistics results like the figures in our papers, we wi
 
 ## Methods
 
-![image-20250913000818366](./README/image-20250913000818366.png)
+![image-20250923182954540](./README/image-20250923182954540.png)
 
-| ![image-20250913001002278](./README/image-20250913001002278.png) | ![image-20250913000856227](./README/image-20250913000856227.png) |
+| ![image-20250923183115035](./README/image-20250923183115035.png) | ![image-20250923183019366](./README/image-20250923183019366.png) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 

@@ -74,7 +74,7 @@ set the file path and parametes in `icp.yaml`, but if you want to do iterative e
 
 if you want to plot the statistics results like the figures in our papers, we will provide later. **If you want to integrate theses methods in your SLAM system, just make sure the degenercy handling only in the first iteration.**
 
-### Test data: [Cylinar and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
+### Test data: [Cylinder and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
 
 ## Methods
 

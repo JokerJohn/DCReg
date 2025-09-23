@@ -27,8 +27,8 @@ icp:
   max_iterations: 30
   error_threshold: 0.2  # Error threshold for color visualization (m)
 
-  CONVERGENCE_THRESH_TRANS: 1e-2
-  CONVERGENCE_THRESH_ROT: 1e-3
+  CONVERGENCE_THRESH_TRANS: 1e-3
+  CONVERGENCE_THRESH_ROT: 1e-4
 
   normal_nn: 5
 

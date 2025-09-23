@@ -25,31 +25,31 @@ Method: FCN-SR
   Rot error: 0.065986 ± 0.000000 deg
   P2P RMSE: 0.032620 m
   Chamfer: 0.029853 m
-  Time: 57.250032 ± 0.000000 ms
+  Time: 50.176367 ± 0.000000 ms
 
 Method: ME-SR
   Success rate: 100.000000%
-  Trans error: 0.014209 ± 0.000000 m
-  Rot error: 0.055008 ± 0.000000 deg
-  P2P RMSE: 0.028828 m
-  Chamfer: 0.026376 m
-  Time: 3.344964 ± 0.000000 ms
+  Trans error: 0.014085 ± 0.000000 m
+  Rot error: 0.055230 ± 0.000000 deg
+  P2P RMSE: 0.028980 m
+  Chamfer: 0.026549 m
+  Time: 4.955672 ± 0.000000 ms
 
 Method: ME-TReg
   Success rate: 100.000000%
-  Trans error: 0.014988 ± 0.000000 m
-  Rot error: 0.050300 ± 0.000000 deg
-  P2P RMSE: 0.026490 m
-  Chamfer: 0.023952 m
-  Time: 1.182901 ± 0.000000 ms
+  Trans error: 0.021754 ± 0.000000 m
+  Rot error: 0.053080 ± 0.000000 deg
+  P2P RMSE: 0.032700 m
+  Chamfer: 0.029362 m
+  Time: 11.000342 ± 0.000000 ms
 
 Method: ME-TSVD
   Success rate: 100.000000%
-  Trans error: 0.025887 ± 0.000000 m
-  Rot error: 0.059804 ± 0.000000 deg
-  P2P RMSE: 0.037596 m
-  Chamfer: 0.034430 m
-  Time: 2.182922 ± 0.000000 ms
+  Trans error: 0.026600 ± 0.000000 m
+  Rot error: 0.058929 ± 0.000000 deg
+  P2P RMSE: 0.037909 m
+  Chamfer: 0.034841 m
+  Time: 4.802863 ± 0.000000 ms
 
 Method: XICP
   Success rate: 100.000000%
@@ -57,4 +57,4 @@ Method: XICP
   Rot error: 0.000001 ± 0.000000 deg
   P2P RMSE: 0.000004 m
   Chamfer: 0.000004 m
-  Time: 12.086047 ± 0.000000 ms
+  Time: 12.592100 ± 0.000000 ms

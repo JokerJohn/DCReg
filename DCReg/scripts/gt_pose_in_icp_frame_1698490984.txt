@@ -1,0 +1,22 @@
+# Ground truth pose transformed to ICP/map frame
+# Query timestamp: 1698490984.1070979
+# GT timestamp: 1698490984.1006956
+# Time difference: 0.006402s
+#
+# TUM format: timestamp tx ty tz qx qy qz qw
+1698490984.100696 -109.831089 -395.052129 -1.025780 0.019121 -0.038312 0.855830 0.515482
+
+# 4x4 Transformation Matrix:
+-0.467826 -0.883795 -0.006770 -109.831089
+0.880864 -0.465622 -0.085290 -395.052129
+0.072227 -0.045865 0.996333 -1.025780
+0.000000 0.000000 0.000000 1.000000
+
+# Translation (x, y, z):
+-109.831089 -395.052129 -1.025780
+
+# Euler angles in degrees (roll, pitch, yaw) - XYZ order:
+-2.635654 -4.141885 117.972711
+# Roll (X):  -2.635654°
+# Pitch (Y): -4.141885°
+# Yaw (Z):   117.972711°

@@ -1,0 +1,228 @@
+Degeneracy Analysis Results
+==========================
+
+Method: FCN-SR
+Final Transform Matrix:
+    1.000000     0.000233    -0.000904     0.009940 
+   -0.000234     1.000000    -0.000674     0.009956 
+    0.000904     0.000674     0.999999     0.010000 
+    0.000000     0.000000     0.000000     1.000000 
+
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.233455
+    SVD Diag Trans: 11.716258
+    Full SVD: 4473.199699
+
+  EVD Eigenvalues (Full):
+    λ0: 15.812317
+    λ1: 132.492277
+    λ2: 185.261193
+    λ3: 16707.784050
+    λ4: 61785.239173
+    λ5: 70731.651550
+
+  SVD Singular Values:
+    σ0: 70731.651550
+    σ1: 61785.239173
+    σ2: 16707.784050
+    σ3: 185.261193
+    σ4: 132.492277
+    σ5: 15.812317
+
+  Diagonal Block Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Schur Complement Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Degenerate Mask (ωxωyωz xyz): 1 1 1 0 0 0 
+
+
+------------------------------------------------------------
+
+Method: ME-SR
+Final Transform Matrix:
+    1.000000     0.000401    -0.000871     0.009373 
+   -0.000401     1.000000    -0.000053    -0.001256 
+    0.000871     0.000053     1.000000     0.010605 
+    0.000000     0.000000     0.000000     1.000000 
+
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.057040
+    SVD Diag Trans: 11.032441
+    Full SVD: 4137.580871
+
+  EVD Eigenvalues (Full):
+    λ0: 17.023710
+    λ1: 136.683914
+    λ2: 187.813070
+    λ3: 17361.667604
+    λ4: 63186.939960
+    λ5: 70436.975104
+
+  SVD Singular Values:
+    σ0: 70436.975104
+    σ1: 63186.939960
+    σ2: 17361.667604
+    σ3: 187.813070
+    σ4: 136.683914
+    σ5: 17.023710
+
+  Diagonal Block Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Schur Complement Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Degenerate Mask (ωxωyωz xyz): 1 0 0 0 0 0 
+
+
+------------------------------------------------------------
+
+Method: ME-TReg
+Final Transform Matrix:
+    1.000000     0.000257    -0.000804     0.009383 
+   -0.000257     1.000000    -0.000241     0.002717 
+    0.000804     0.000242     1.000000     0.011367 
+    0.000000     0.000000     0.000000     1.000000 
+
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.104365
+    SVD Diag Trans: 11.753962
+    Full SVD: 4475.669217
+
+  EVD Eigenvalues (Full):
+    λ0: 15.296300
+    λ1: 128.818707
+    λ2: 179.792116
+    λ3: 16680.090929
+    λ4: 60715.675064
+    λ5: 68461.176840
+
+  SVD Singular Values:
+    σ0: 68461.176840
+    σ1: 60715.675064
+    σ2: 16680.090929
+    σ3: 179.792116
+    σ4: 128.818707
+    σ5: 15.296300
+
+  Diagonal Block Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Schur Complement Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Degenerate Mask (ωxωyωz xyz): 1 0 0 0 0 0 
+
+
+------------------------------------------------------------
+
+Method: ME-TSVD
+Final Transform Matrix:
+    1.000000     0.000365    -0.000592     0.008827 
+   -0.000364     1.000000     0.000779    -0.000307 
+    0.000592    -0.000779     1.000000     0.024334 
+    0.000000     0.000000     0.000000     1.000000 
+
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 3.962587
+    SVD Diag Trans: 11.029195
+    Full SVD: 4109.146397
+
+  EVD Eigenvalues (Full):
+    λ0: 16.881738
+    λ1: 134.205714
+    λ2: 186.191977
+    λ3: 17506.124380
+    λ4: 62179.847724
+    λ5: 69369.533157
+
+  SVD Singular Values:
+    σ0: 69369.533157
+    σ1: 62179.847724
+    σ2: 17506.124380
+    σ3: 186.191977
+    σ4: 134.205714
+    σ5: 16.881738
+
+  Diagonal Block Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Schur Complement Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Degenerate Mask (ωxωyωz xyz): 1 0 0 0 0 0 
+
+
+------------------------------------------------------------
+
+Method: XICP
+Final Transform Matrix:
+    1.000000     0.000000    -0.000000     0.000002 
+   -0.000000     1.000000    -0.000000     0.000002 
+    0.000000     0.000000     1.000000     0.000001 
+    0.000000     0.000000     0.000000     1.000000 
+
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: 37.938761
+    Diag Trans: 2.008205
+    SVD Diag Rot: nan
+    SVD Diag Trans: nan
+    Full SVD: 1091.133092
+
+  EVD Eigenvalues (Full):
+    λ0: 1634.556337
+    λ1: 1681.748405
+    λ2: 3758.676464
+    λ3: 47006.341586
+    λ4: 1724629.836336
+    λ5: 1783518.509527
+
+  SVD Singular Values:
+    σ0: 1783518.509527
+    σ1: 1724629.836336
+    σ2: 47006.341586
+    σ3: 3758.676464
+    σ4: 1681.748405
+    σ5: 1634.556337
+
+  Diagonal Block Eigenvalues:
+    Rotation: [  47004.039712 1724388.514480 1783275.034826]
+    Translation: [1871.938629 1930.904569 3759.236438]
+
+  Schur Complement Eigenvalues:
+    Rotation: [nan nan nan]
+    Translation: [nan nan nan]
+
+  Degenerate Mask (ωxωyωz xyz): 0 0 1 0 0 0 
+
+
+------------------------------------------------------------
+

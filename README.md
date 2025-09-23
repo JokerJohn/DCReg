@@ -33,9 +33,50 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ## Timeline
 
+**2025/09/22:** the baseline codes and data released, including ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc!!
+
 **2025/09/09:** the preprint paper is [online](https://arxiv.org/abs/2509.06285), baseline codes will be published first!
 
 
+
+## Quickly Start
+
+### Dependency(Test on Unbuntu 20.04)
+
+- Open3D 0.15.1
+- Ceres 2.1.0
+- yaml-cpp 0.6.2
+- OpenMP 201511 
+- TBB  2020.1
+- Eigen 3.3.7
+- PCL 1.10.0
+
+### Install
+
+```bash
+mkdir build
+cd build
+cmake ..
+make -j8
+```
+
+set the file path and parametes in `icp.yaml`, but if you want to do iterative experments, e.g. iterative for 5000, just use the `icp_iter.yaml`. if you want to test on the real-world data, just use the `icp_pk01.yaml`, like **Figure.16** in the paper.
+
+```bash
+./icp_test_runner
+```
+
+ For other settings, you can see the notes in the yaml. Note that, the impelment of SuperLoc and XICP has also verified using autodiff or NumericDiff methods. Finally you can get the output:
+
+| output files                                                 | summary                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![image-20250923174833727](./README/image-20250923174833727.png) | ![image-20250923174918310](./README/image-20250923174918310.png) |
+
+if you want to plot the statistics results like the figures in our papers, we will provide later.
+
+### Test data
+
+[Cylinar and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
 
 ## Methods
 

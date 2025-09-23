@@ -1,0 +1,113 @@
+
+test:
+  num_runs: 1  # Number of test runs (set to 1 for single run)
+  save_pcd: true  # Save aligned point clouds
+  save_error_pcd: true  # Save error visualization point clouds
+  visualize: false  # Enable visualization
+
+# File Paths
+#environment_cloud_shifted_cylinder measured_cloud_shifted_cylinder
+# measured_cloud_parallel_planes environment_cloud_parallel_planes
+paths:
+  folder_path: "//home/xchu/Downloads/ltloc-results/simulated_pc/pk01-1976/"
+  source_pcd: "parkinglot_raw_2415_frame.pcd"
+  target_pcd: "target_prior_map.pcd"
+  output_folder: "/home/xchu/Downloads/ltloc-results/simulated_pc/pk01-1976/icp_results/"
+
+# ICP Parameters
+icp:
+  search_radius: 0.5
+  max_iterations: 30
+  error_threshold: 0.5  # Error threshold for color visualization (m)
+
+  CONVERGENCE_THRESH_TRANS: 1e-3
+  CONVERGENCE_THRESH_ROT: 1e-5
+
+  normal_nn: 5
+# Initial Pose Noise (added to ground truth)
+# you may need to set the initial pose
+initial_noise:
+  x: -109.979288618688
+  y: -395.174034820224
+  z: -0.900523132121
+  roll_deg: -2.650863295637
+  pitch_deg: -2.836418366839
+  yaw_deg:  120.142832419935
+
+# Ground Truth (if known, otherwise set to identity)
+gt_pose:
+  x: -109.831089
+  y: -395.052129
+  z:  -1.025780
+  roll_deg: -2.635654
+  pitch_deg: -4.141885
+  yaw_deg: 117.972711
+
+# Degeneracy Thresholds
+degeneracy:
+  condition_threshold: 10.0  # DEGENERACY_THRES_COND
+  eigenvalue_threshold: 120.0  # DEGENERACY_THRES_EIG
+
+# Method-specific Parameters
+method_params:
+  # Adaptive Regularization
+  adaptive_reg:
+    alpha: 10.0  # ADAPTIVE_REG_ALPHA
+
+  # Standard Regularization (Tikhonov)
+  standard_reg:
+    gamma: 100.0  # STD_REG_GAMMA
+
+  # Preconditioned CG
+  pcg:
+    kappa_target: 10.0  # KAPPA_TARGET
+    tolerance: 1e-6  # PCG_TOLERANCE
+    max_iter: 10  # PCG_MAX_ITER
+
+  # Truncated SVD
+  tsvd:
+    singular_threshold: 120.0  # TSVD_SINGULAR_THRESH
+
+  # Solution Remapping (LOAM)
+  solution_remapping:
+    eigen_threshold: 120.0  # LOAM_EIGEN_THRESH
+
+
+
+# XICP Parameters
+icp_params:
+  # X-ICP specific parameters
+  XICP_ENOUGH_INFO_THRESHOLD: 300.0      # 足够信息的阈值
+  XICP_INSUFFICIENT_INFO_THRESHOLD: 150.0 # 信息不足的阈值
+  XICP_HIGH_INFO_THRESHOLD: 1000.0       # 高信息量阈值
+  XICP_SOLUTION_REMAPPING_THRESHOLD: 120.0 # Solution Remapping的特征值阈值
+  XICP_MINIMAL_ALIGNMENT_ANGLE: 60.0     # 最小对齐角度（度）
+  XICP_STRONG_ALIGNMENT_ANGLE: 45.0      # 强对齐角度（度）
+  XICP_INEQUALITY_BOUND_MULTIPLIER: 100.0  # 不等式约束乘数
+
+
+# Test Methods Configuration
+# Format: method_name: [detection_method, handling_method]
+test_methods:
+  #  "None": [ "NONE_DETE", "NONE_HAND" ]
+  "O3D": [ "O3D", "O3D" ]
+  "ME-SR": [ "FULL_EVD_MIN_EIGENVALUE", "SOLUTION_REMAPPING" ]
+  "ME-TSVD": [ "FULL_EVD_MIN_EIGENVALUE", "TRUNCATED_SVD" ]
+  "ME-TReg": [ "FULL_EVD_MIN_EIGENVALUE", "STANDARD_REGULARIZATION" ]
+  ##  "ME-AReg": [ "FULL_EVD_MIN_EIGENVALUE", "ADAPTIVE_REGULARIZATION" ]  # 新增
+  "FCN-SR": [ "FULL_SVD_CONDITION", "SOLUTION_REMAPPING" ]
+  ##    "CN-SR": [ "EVD_SUB_CONDITION", "SOLUTION_REMAPPING" ]
+  "XICP-1": [ "XICP_SOLUTION_REMAPPING", "XICP_PROJECTION" ]
+  "XICP-EQ": [ "XICP_EQUALITY", "XICP_CONSTRAINT"]
+  "XICP-INQ": [ "XICP_INEQUALITY", "XICP_CONSTRAINT"]
+  "XICP-OP": [ "XICP_OPTIMIZED_EQUALITY", "XICP_PROJECTION"]
+  "XICP": [ "XICP_INEQUALITY", "XICP_CONSTRAINT"]
+  "SuperLoc": [ "SUPERLOC", "SUPERLOC" ]
+  "Ours": [ "SCHUR_CONDITION_NUMBER", "PRECONDITIONED_CG" ]
+
+
+# Output Options
+output:
+  save_csv: true  # Save iteration details to CSV
+  save_summary: true  # Save summary to TXT
+  save_statistics: true  # Save statistics for multiple ru

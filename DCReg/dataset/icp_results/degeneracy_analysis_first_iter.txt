@@ -1,0 +1,70 @@
+Degeneracy Analysis Results (First Iteration)
+============================================
+
+Method: FCN-SR
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.10
+    SVD Diag Trans: 11.75
+    Full SVD: 4475.67
+  Eigenvalues (Full): 15.296 128.819 179.792 16680.091 60715.675 68461.177 
+  Degenerate Mask (wxwywz xyz): 1 1 1 0 0 0 
+  Is Degenerate: Yes
+
+Method: ME-SR
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.10
+    SVD Diag Trans: 11.75
+    Full SVD: 4475.67
+  Eigenvalues (Full): 15.296 128.819 179.792 16680.091 60715.675 68461.177 
+  Degenerate Mask (wxwywz xyz): 1 0 0 0 0 0 
+  Is Degenerate: Yes
+
+Method: ME-TReg
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.10
+    SVD Diag Trans: 11.75
+    Full SVD: 4475.67
+  Eigenvalues (Full): 15.296 128.819 179.792 16680.091 60715.675 68461.177 
+  Degenerate Mask (wxwywz xyz): 1 0 0 0 0 0 
+  Is Degenerate: Yes
+
+Method: ME-TSVD
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: nan
+    Diag Trans: nan
+    SVD Diag Rot: 4.10
+    SVD Diag Trans: 11.75
+    Full SVD: 4475.67
+  Eigenvalues (Full): 15.296 128.819 179.792 16680.091 60715.675 68461.177 
+  Degenerate Mask (wxwywz xyz): 1 0 0 0 0 0 
+  Is Degenerate: Yes
+
+Method: XICP
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: 37.94
+    Diag Trans: 2.01
+    SVD Diag Rot: nan
+    SVD Diag Trans: nan
+    Full SVD: 1091.13
+  Eigenvalues (Full): 1634.556 1681.748 3758.676 47006.342 1724629.836 1783518.510 
+  Degenerate Mask (wxwywz xyz): 0 0 1 0 0 0 
+  Is Degenerate: Yes
+
+
+

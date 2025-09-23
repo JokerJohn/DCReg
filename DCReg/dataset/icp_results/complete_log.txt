@@ -1,0 +1,60 @@
+Complete ICP Test Log
+====================
+
+Configuration:
+  Source: measured_cloud_shifted_cylinder.pcd
+  Target: measured_cloud_shifted_cylinder.pcd
+  Runs: 1
+  Initial noise: x=0.010000, y=0.010000, z=0.010000, roll=0.000000, pitch=0.000000, yaw=0.000000 deg
+
+ICP Parameters:
+  DEGENERACY_THRES_COND: 10.000000
+  DEGENERACY_THRES_EIG: 120.000000
+  STD_REG_GAMMA: 100.000000
+  ADAPTIVE_REG_ALPHA: 10.000000
+  KAPPA_TARGET: 10.000000
+  PCG_TOLERANCE: 0.000001
+  PCG_MAX_ITER: 10
+
+Results Summary:
+================
+
+Method: FCN-SR
+  Success rate: 100.000000%
+  Trans error: 0.017261 ± 0.000000 m
+  Rot error: 0.065986 ± 0.000000 deg
+  P2P RMSE: 0.032620 m
+  Chamfer: 0.029853 m
+  Time: 57.250032 ± 0.000000 ms
+
+Method: ME-SR
+  Success rate: 100.000000%
+  Trans error: 0.014209 ± 0.000000 m
+  Rot error: 0.055008 ± 0.000000 deg
+  P2P RMSE: 0.028828 m
+  Chamfer: 0.026376 m
+  Time: 3.344964 ± 0.000000 ms
+
+Method: ME-TReg
+  Success rate: 100.000000%
+  Trans error: 0.014988 ± 0.000000 m
+  Rot error: 0.050300 ± 0.000000 deg
+  P2P RMSE: 0.026490 m
+  Chamfer: 0.023952 m
+  Time: 1.182901 ± 0.000000 ms
+
+Method: ME-TSVD
+  Success rate: 100.000000%
+  Trans error: 0.025887 ± 0.000000 m
+  Rot error: 0.059804 ± 0.000000 deg
+  P2P RMSE: 0.037596 m
+  Chamfer: 0.034430 m
+  Time: 2.182922 ± 0.000000 ms
+
+Method: XICP
+  Success rate: 100.000000%
+  Trans error: 0.000003 ± 0.000000 m
+  Rot error: 0.000001 ± 0.000000 deg
+  P2P RMSE: 0.000004 m
+  Chamfer: 0.000004 m
+  Time: 12.086047 ± 0.000000 ms

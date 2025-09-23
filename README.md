@@ -74,9 +74,7 @@ set the file path and parametes in `icp.yaml`, but if you want to do iterative e
 
 if you want to plot the statistics results like the figures in our papers, we will provide later.
 
-### Test data
-
-[Cylinar and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
+### Test data: [Cylinar and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
 
 ## Methods
 
@@ -201,7 +199,7 @@ For referencing our work, please use:
 The authors gratefully acknowledge the valuable contributions that made this work possible. 
 
 - We extend special thanks to [Dr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that significantly contributed to refining the theoretical framework presented in this paper. 
-- We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm implementation.
+- We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline algorithm XICP implementation.
 
 ## Contributors
 

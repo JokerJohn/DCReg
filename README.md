@@ -39,13 +39,8 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ### Dependency (Test on Unbuntu 20.04)
 
-- [Open3D 0.15.1](https://github.com/isl-org/Open3D/tree/v0.15.1)
-- https://github.com/ceres-solver/ceres-solver/tree/2.1.0
-- [yaml-cpp 0.6.2](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.6.2)
-- OpenMP 201511 
-- TBB  2020.1
-- [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/releases/3.3.7)
-- [PCL 1.10.0](https://github.com/PointCloudLibrary/pcl/tree/pcl-1.10.0)
+| [Open3D 0.15.1](https://github.com/isl-org/Open3D/tree/v0.15.1) | [Ceres 2.1.0](https://github.com/ceres-solver/ceres-solver/tree/2.1.0) | [yaml-cpp 0.6.2](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.6.2) | [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/releases/3.3.7) | OpenMP 201511 | TBB  2020.1 | [PCL 1.10.0](https://github.com/PointCloudLibrary/pcl/tree/pcl-1.10.0) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- | ----------- | ------------------------------------------------------------ |
 
 ### Install
 
@@ -62,13 +57,13 @@ set the file path and parametes in `icp.yaml`, but if you want to do iterative e
 ./icp_test_runner
 ```
 
- For other settings, you can see the notes in the yaml. Note that, the impelment of SuperLoc and XICP has also verified using autodiff or NumericDiff methods. Finally you can get the output:
+For other settings, you can see the notes in the yaml. Note that, the impelment of SuperLoc and XICP has also verified using autodiff or NumericDiff methods. Finally you can get the output:
 
 | output files                                                 | results summary                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image-20250923174833727](./README/image-20250923174833727.png) | ![image-20250923174918310](./README/image-20250923174918310.png) |
 
-if you want to plot the statistics results like the figures in our papers, we will provide later. **If you want to integrate theses methods in your SLAM system, just make sure the degenercy handling only in the first iteration.**
+If you want to plot the statistics results like the figures in our papers, we will provide later. **If you want to integrate theses methods in your SLAM system, just make sure the degenercy handling only in the first iteration.**
 
 ### Test data: [Cylinder and Parkinglot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link).
 

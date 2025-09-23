@@ -37,7 +37,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ## Quick Start
 
-### Dependency(Test on Unbuntu 20.04)
+### Dependency (Test on Unbuntu 20.04)
 
 - Open3D 0.15.1
 - Ceres 2.1.0
@@ -64,7 +64,7 @@ set the file path and parametes in `icp.yaml`, but if you want to do iterative e
 
  For other settings, you can see the notes in the yaml. Note that, the impelment of SuperLoc and XICP has also verified using autodiff or NumericDiff methods. Finally you can get the output:
 
-| output files                                                 | summary                                                      |
+| output files                                                 | results summary                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![image-20250923174833727](./README/image-20250923174833727.png) | ![image-20250923174918310](./README/image-20250923174918310.png) |
 

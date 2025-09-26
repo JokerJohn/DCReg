@@ -178,9 +178,9 @@ If you want to plot the statistics results like the figures in our papers, we wi
 
 | ![image-20250927011229407](./README/image-20250927011229407.png) | **S_R** is precisely the Hessian of the rotation<br/> subproblem after optimally accommodating translation; <br/>hence spectral analysis on the rotation subproblem<br/>is equivalent (the sensitivity of φ) to analyzing the full <br/>problem with δt eliminated. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![image-20250927011708931](./README/image-20250927011708931.png) | This projection removes components of **range(J_R)**<br/> that can be explained by Jt, retaining only  <br/>the rotation information that cannot be compensated by translation |
+| ![image-20250927011708931](./README/image-20250927011708931.png) | This projection removes components of **range(J_R)**<br/> that can be explained by **J_t**, retaining only  <br/>the rotation information that cannot be compensated by translation. |
 | ![image-20250927011814013](./README/image-20250927011814013.png) | This property demonstrates that **Schur <br/>complementsnaturally eliminate sensitivity <br/>to unit or scale changes in the<br/>eliminated parameters**, directly addressing <br/>the scale disparity between rotation (radians) <br/>and translation (meters) |
-| ![image-20250927012104036](./README/image-20250927012104036.png) | **κ(S_R)** may be smaller than **κ(H_RR)** when<br/>coupling is weak, or substantially larger when <br/>coupling is strong. <br/>**(iv)** **shows that** **the real observability information<br/>can be masked by the cross terms** (MR and Mt). |
+| ![image-20250927012104036](./README/image-20250927012104036.png) | **κ(S_R)** may be smaller than **κ(H_RR)** when<br/>coupling is weak, or substantially larger when <br/>coupling is strong. <br/>**(iv)** **shows that** **the real observability information<br/>can be masked by the cross terms** (M_R and M_t). |
 
 ### **Eigenvalue clamping in subspace**
 

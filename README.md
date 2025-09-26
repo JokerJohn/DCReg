@@ -29,7 +29,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ## Timeline
 
-**2025/09/22:** the baseline codes and data released, including **ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc**!!
+**2025/09/23:** the baseline codes and data released, including **ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc**!! This codes will help you deeply into the ICP process.
 
 **2025/09/09:** the preprint paper is [online](https://arxiv.org/abs/2509.06285), baseline codes will be published first!
 
@@ -39,8 +39,8 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ### Dependency (Test on Unbuntu 20.04)
 
-| [Open3D 0.15.1](https://github.com/isl-org/Open3D/tree/v0.15.1) | [Ceres 2.1.0](https://github.com/ceres-solver/ceres-solver/tree/2.1.0) | [yaml-cpp 0.6.2](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.6.2) | [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/releases/3.3.7) | OpenMP 201511 | TBB  2020.1 | [PCL 1.10.0](https://github.com/PointCloudLibrary/pcl/tree/pcl-1.10.0) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- | ----------- | ------------------------------------------------------------ |
+| [Open3D 0.15.1](https://github.com/isl-org/Open3D/tree/v0.15.1) | [Ceres 2.1.0](https://github.com/ceres-solver/ceres-solver/tree/2.1.0) | [yaml-cpp 0.6.2](https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.6.2) | [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/releases/3.3.7) | OpenMP 201511 | TBB  2020.1 | PCL 1.10.0 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- | ----------- | ---------- |
 
 ### Install
 
@@ -163,6 +163,14 @@ If you want to plot the statistics results like the figures in our papers, we wi
 
 ![image-20250913000546827](./README/image-20250913000546827.png)
 </div>
+
+## Important Issue
+
+#### What you can get from the baseline codes?
+
+- the efftect of **different pose parameterization** method for ICP, like SE(3), R3*SO(3), S3  and Eular.
+- different **implement of optimization**, like eigen(mannually-derived), Ceres(autodiff and numerial method).
+- different **parallels method** for ICP, like OpenMP and TBB.
 
 
 

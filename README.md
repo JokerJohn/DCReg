@@ -29,7 +29,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 ## Timeline
 
-**2025/09/23:** the baseline codes and data released, including **ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc**!! This codes will help you deeply into the ICP process.
+**2025/09/23:** the baseline codes and data released, including **ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc**!! This codes will help you deeply into the ICP process. Next we will show how to integrate these methods in your own SLAM systems.
 
 **2025/09/09:** the preprint paper is [online](https://arxiv.org/abs/2509.06285), baseline codes will be published first!
 
@@ -135,7 +135,7 @@ If you want to plot the statistics results like the figures in our papers, we wi
 ​    
 
 
-   
+
 
 ![image-20250908195247186](./README/image-20250908195247186.png) 
 </div>

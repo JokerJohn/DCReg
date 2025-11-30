@@ -1,0 +1,41 @@
+stairs ===================== 2025-07-12 21:02:00 ===================== 
+Ground Truth Path: /media/xchu/新加卷/GEODE/gt_map.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/stair_bob_all/stairs_bob_fcn_sr/map.pcd
+stairs ===================== 2025-07-12 21:02:24 ===================== 
+Ground Truth Path: /media/xchu/新加卷/GEODE/gt_map.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/stair_bob_all/stairs_bob_fcn_sr/map.pcd
+Estimated-Ground Truth point count: 6313169 / 10801384
+Aligned cloud:  0.99962  0.00035 -0.02754  0.07839
+-0.00091  0.99979 -0.02030  0.04190
+ 0.02753  0.02032  0.99941  0.41883
+ 0.00000  0.00000  0.00000  1.00000
+Aligned results: 0.39346 2483960
+RMSE/AC: 0.077985532122719 0.030961897467143 0.022848778694540 0.011737892460900 0.000422569369061
+Comp: 0.195700922943770 0.107043546592844 0.085862900232831 0.050394025567825 0.001174053791368
+FULL CD: 3.76241
+VMD: 0.72672
+SCS: 0.53197
+Time load-MME-mesh-ICP-Metric-AC-FCD: 0.00000 0.00000 0.00000 143.59205 23.49761 0.12260 16.80704
+VMD Time voxelization-WD-CDF-SCS: 6.24184 0.01491 0.00220 0.19820
+AC+MME Time: 0.12260
+CD+MME Time: 16.80704
+AWD+SCS Time: 6.45495
+stairs ===================== 2025-07-12 21:51:36 ===================== 
+Ground Truth Path: /media/xchu/新加卷/GEODE/gt_map.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/stair_bob_all/stairs_bob_fcn_sr/map.pcd
+Estimated-Ground Truth point count: 6313169 / 10801384
+Aligned cloud:  0.99970 -0.00458 -0.02390  0.03002
+ 0.00417  0.99984 -0.01759  0.14077
+ 0.02397  0.01749  0.99956  0.31144
+ 0.00000  0.00000  0.00000  1.00000
+Aligned results: 0.61211 3864382
+RMSE/AC: 0.064526152514482 0.024590097419986 0.017795644621488 0.008962040675796 0.000310560375675
+Comp: 0.195779647273818 0.100200390643748 0.078492433831567 0.044765473568029 0.000985558916607
+FULL CD: 3.77046
+VMD: 0.72186
+SCS: 0.52569
+Time load-MME-mesh-ICP-Metric-AC-FCD: 0.00000 0.00000 0.00000 146.12173 23.44406 0.15163 16.66749
+VMD Time voxelization-WD-CDF-SCS: 6.47881 0.01442 0.00183 0.19432
+AC+MME Time: 0.15163
+CD+MME Time: 16.66749
+AWD+SCS Time: 6.68754

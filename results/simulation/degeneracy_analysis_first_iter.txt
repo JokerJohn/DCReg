@@ -1,0 +1,101 @@
+Degeneracy Analysis Results (First Iteration)
+============================================
+
+Method: FCN-SR
+  Condition Numbers:
+    Schur Rot: 7.10
+    Schur Trans: 26.81
+    Diag Rot: 13.66
+    Diag Trans: 85.29
+    SVD Diag Rot: 13.67
+    SVD Diag Trans: 26.65
+    Full SVD: 14845.67
+  Eigenvalues (Full): 0.629 5.581 16.772 683.235 1993.284 9342.336 
+  Degenerate Mask (wxwywz xyz): 1 1 1 1 0 0 
+  Is Degenerate: Yes
+
+Method: ME-SR
+  Condition Numbers:
+    Schur Rot: 7.10
+    Schur Trans: 26.81
+    Diag Rot: 13.66
+    Diag Trans: 85.29
+    SVD Diag Rot: 13.67
+    SVD Diag Trans: 26.65
+    Full SVD: 14845.67
+  Eigenvalues (Full): 0.629 5.581 16.772 683.235 1993.284 9342.336 
+  Degenerate Mask (wxwywz xyz): 1 1 1 0 0 0 
+  Is Degenerate: Yes
+
+Method: ME-TReg
+  Condition Numbers:
+    Schur Rot: 7.10
+    Schur Trans: 26.81
+    Diag Rot: 13.66
+    Diag Trans: 85.29
+    SVD Diag Rot: 13.67
+    SVD Diag Trans: 26.65
+    Full SVD: 14845.67
+  Eigenvalues (Full): 0.629 5.581 16.772 683.235 1993.284 9342.336 
+  Degenerate Mask (wxwywz xyz): 1 1 1 0 0 0 
+  Is Degenerate: Yes
+
+Method: ME-TSVD
+  Condition Numbers:
+    Schur Rot: 7.10
+    Schur Trans: 26.81
+    Diag Rot: 13.66
+    Diag Trans: 85.29
+    SVD Diag Rot: 13.67
+    SVD Diag Trans: 26.65
+    Full SVD: 14845.67
+  Eigenvalues (Full): 0.629 5.581 16.772 683.235 1993.284 9342.336 
+  Degenerate Mask (wxwywz xyz): 1 1 1 0 0 0 
+  Is Degenerate: Yes
+
+Method: Ours
+  Condition Numbers:
+    Schur Rot: 7.10
+    Schur Trans: 26.81
+    Diag Rot: 13.66
+    Diag Trans: 85.29
+    SVD Diag Rot: 13.67
+    SVD Diag Trans: 26.65
+    Full SVD: 14845.67
+  Eigenvalues (Full): 0.629 5.581 16.772 683.235 1993.284 9342.336 
+  Degenerate Mask (wxwywz xyz): 0 0 0 1 0 0 
+  Is Degenerate: Yes
+
+  Preconditioner Matrix P:
+        0.002284    -0.000050    -0.000392     0.000000     0.000000     0.000000 
+       -0.000050     0.000606    -0.000145     0.000000     0.000000     0.000000 
+       -0.000392    -0.000145     0.000501     0.000000     0.000000     0.000000 
+        0.000000     0.000000     0.000000     0.592674     0.000601     0.003843 
+        0.000000     0.000000     0.000000     0.000601     0.173605     0.023697 
+        0.000000     0.000000     0.000000     0.003843     0.023697     0.064207 
+
+  Alignment Analysis:
+    Rotation Axes:
+      [0]~R (orig_idx=0): λ=422.505477, Angle=11.821719°, 81.964683%R+17.131942%P+0.903375%Y
+      [1]~P (orig_idx=2): λ=2999.323349, Angle=31.473096°, 12.040715%R+55.917023%P+32.042262%Y
+      [2]~Y (orig_idx=1): λ=1447.735216, Angle=29.265021°, 6.289249%R+33.276503%P+60.434248%Y
+    Translation Axes:
+      [0]~X (orig_idx=2): λ=16.871859, Angle=11.713575°, 82.359294%X+17.066484%Y+0.574222%Z
+      [1]~Y (orig_idx=1): λ=5.601848, Angle=11.707349°, 17.115614%X+82.605761%Y+0.278625%Z
+      [2]~Z (orig_idx=0): λ=0.629416, Angle=0.434531°, 0.728822%X+0.183210%Y+99.087968%Z
+ 
+Method: XICP
+  Condition Numbers:
+    Schur Rot: nan
+    Schur Trans: nan
+    Diag Rot: 49.51
+    Diag Trans: 4.21
+    SVD Diag Rot: nan
+    SVD Diag Trans: nan
+    Full SVD: 1366.01
+  Eigenvalues (Full): 1172.447 1468.385 3291.067 32394.762 1396713.878 1601570.572 
+  Degenerate Mask (wxwywz xyz): 0 0 1 0 0 0 
+  Is Degenerate: Yes
+
+
+

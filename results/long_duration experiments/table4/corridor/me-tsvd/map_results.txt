@@ -1,0 +1,22 @@
+corridor ===================== 2025-07-23 04:35:53 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/gt/map/corridor_day_gt.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/20220216_corridor_day_ref_5_me_tsvd/map.pcd
+corridor ===================== 2025-07-23 04:36:29 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/gt/map/corridor_day_gt.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/20220216_corridor_day_ref_5_me_tsvd/map.pcd
+Estimated-Ground Truth point count: 8480182 / 24742923
+Aligned cloud:  1.00000  0.00012 -0.00013  0.00611
+-0.00012  1.00000 -0.00047  0.00771
+ 0.00013  0.00047  1.00000 -0.00625
+ 0.00000  0.00000  0.00000  1.00000
+Aligned results: 0.96379 8173116
+RMSE/AC: 0.043565752835554 0.029696495412572 0.026748721848673 0.020621631308465 0.003250657235265
+Comp: 0.899578806209584 0.852532528193381 0.832476590714680 0.760484739596391 0.186469464924220
+FULL CD: 1.10852
+VMD: 0.32813
+SCS: 0.59886
+Time load-MME-mesh-ICP-Metric-AC-FCD: 0.00000 0.00000 0.00000 88.16226 41.36555 0.41386 31.00996
+VMD Time voxelization-WD-CDF-SCS: 1.44481 0.00523 0.00081 0.03868
+AC+MME Time: 0.41386
+CD+MME Time: 31.00996
+AWD+SCS Time: 1.48872

@@ -1,0 +1,86 @@
+ICP Test Statistics Summary
+===========================
+
+Configuration:
+  Source: measured_cloud_shifted_cylinder.pcd
+  Target: measured_cloud_shifted_cylinder.pcd
+  Cloud size: 7562 7562
+  Runs per method: 1
+
+         Method    Success%    Trans(m)    Rot(deg)    ICP_RMSE   Avg_Iters      P2PDis  ChamferDis    P2P_Fit%    P2P_Corr   Time(ms)
+---------------------------------------------------------------------------------------------------------------------------------------
+         FCN-SR         0.0      0.9624      3.7645      0.1958      5000.0      0.0230      0.9312        2.43         184     3017.32
+          ME-SR         0.0      0.9618      3.6091      0.1940      5000.0      0.0219      0.9222        2.25         170     3002.96
+        ME-TReg         0.0      0.0271      0.0507      0.0316      5000.0      0.0362      0.0329      100.00        7562     3107.26
+        ME-TSVD         0.0      0.0283      0.9627      0.1457      5000.0      0.0621      0.3472       25.03        1893     3107.51
+           Ours         0.0      0.0271      0.0507      0.0316      5000.0      0.0362      0.0329      100.00        7562     3569.34
+
+
+Detailed Statistics:
+===================
+
+Method: FCN-SR
+  Converged: 0/1 (Success Rate: 0.0%)
+  Iterations: 5000.0
+  Translation Error (m): 0.962438 ± 0.000000 [0.962438, 0.962438]
+  Rotation Error (deg): 3.764523 ± 0.000000 [3.764523, 3.764523]
+  Time (ms): 3017.32 ± 0.00
+  ICP RMSE: 0.195778
+  ICP Fitness: 0.0578
+  ICP Correspondence: 184
+  Point-to-Point RMSE: 0.023016
+  Point-to-Point Fitness: 0.0243
+  Chamfer Distance: 0.931182
+
+Method: ME-SR
+  Converged: 0/1 (Success Rate: 0.0%)
+  Iterations: 5000.0
+  Translation Error (m): 0.961818 ± 0.000000 [0.961818, 0.961818]
+  Rotation Error (deg): 3.609088 ± 0.000000 [3.609088, 3.609088]
+  Time (ms): 3002.96 ± 0.00
+  ICP RMSE: 0.193980
+  ICP Fitness: 0.0591
+  ICP Correspondence: 170
+  Point-to-Point RMSE: 0.021886
+  Point-to-Point Fitness: 0.0225
+  Chamfer Distance: 0.922188
+
+Method: ME-TReg
+  Converged: 0/1 (Success Rate: 0.0%)
+  Iterations: 5000.0
+  Translation Error (m): 0.027136 ± 0.000000 [0.027136, 0.027136]
+  Rotation Error (deg): 0.050696 ± 0.000000 [0.050696, 0.050696]
+  Time (ms): 3107.26 ± 0.00
+  ICP RMSE: 0.031570
+  ICP Fitness: 0.2066
+  ICP Correspondence: 7562
+  Point-to-Point RMSE: 0.036215
+  Point-to-Point Fitness: 1.0000
+  Chamfer Distance: 0.032908
+
+Method: ME-TSVD
+  Converged: 0/1 (Success Rate: 0.0%)
+  Iterations: 5000.0
+  Translation Error (m): 0.028317 ± 0.000000 [0.028317, 0.028317]
+  Rotation Error (deg): 0.962741 ± 0.000000 [0.962741, 0.962741]
+  Time (ms): 3107.51 ± 0.00
+  ICP RMSE: 0.145655
+  ICP Fitness: 0.1759
+  ICP Correspondence: 1893
+  Point-to-Point RMSE: 0.062127
+  Point-to-Point Fitness: 0.2503
+  Chamfer Distance: 0.347181
+
+Method: Ours
+  Converged: 0/1 (Success Rate: 0.0%)
+  Iterations: 5000.0
+  Translation Error (m): 0.027136 ± 0.000000 [0.027136, 0.027136]
+  Rotation Error (deg): 0.050696 ± 0.000000 [0.050696, 0.050696]
+  Time (ms): 3569.34 ± 0.00
+  ICP RMSE: 0.031570
+  ICP Fitness: 0.2066
+  ICP Correspondence: 7562
+  Point-to-Point RMSE: 0.036215
+  Point-to-Point Fitness: 1.0000
+  Chamfer Distance: 0.032908
+

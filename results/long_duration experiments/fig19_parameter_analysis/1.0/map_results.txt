@@ -1,0 +1,26 @@
+redbird_02 ===================== 2025-07-25 13:12:25 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/est_file/redbird_02/hkustgz_gt_filter.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/parkinglot_parameter_20_all/parkinglot_raw_20_ours_1.0/global_pcd_lidar.pcd
+redbird_02 ===================== 2025-07-25 13:12:51 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/est_file/redbird_02/hkustgz_gt_filter.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/parkinglot_parameter_20_all/parkinglot_raw_20_ours_1.0/global_pcd_lidar.pcd
+Estimated-Ground Truth point count: 23378781 / 132012045
+redbird_02 ===================== 2025-07-25 13:20:48 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/est_file/redbird_02/hkustgz_gt_filter.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/parkinglot_parameter_20_all/parkinglot_raw_20_ours_1.0/global_pcd_lidar.pcd
+Estimated-Ground Truth point count: 23378781 / 132012045
+Aligned cloud:  1.00000  0.00010  0.00000  0.05727
+-0.00010  1.00000 -0.00002 -0.01125
+-0.00000  0.00002  1.00000  0.00932
+ 0.00000  0.00000  0.00000  1.00000
+Aligned results: 0.98439 23013908
+RMSE/AC: 0.052920107600705 0.043889732474897 0.039640307361044 0.027679296250258 0.000861303570383
+Comp: 0.963135246444201 0.914497637836635 0.870339860748086 0.664598167030180 0.012211372355128
+FULL CD: 173.80106
+VMD: 0.26802
+SCS: 1.04768
+Time load-MME-mesh-ICP-Metric-AC-FCD: 0.00000 0.00000 0.00000 543.54341 300.11059 2.72949 237.89230
+VMD Time voxelization-WD-CDF-SCS: 77.71917 0.02589 0.00348 0.24624
+AC+MME Time: 2.72949
+CD+MME Time: 237.89230
+AWD+SCS Time: 77.99131

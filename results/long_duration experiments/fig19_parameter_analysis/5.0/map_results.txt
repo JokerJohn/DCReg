@@ -1,0 +1,19 @@
+redbird_02 ===================== 2025-07-25 14:52:30 ===================== 
+Ground Truth Path: /media/xchu/e81eaf80-d92c-413a-a503-1c9b35b19963/home/xchu/data/evaluation/est_file/redbird_02/hkustgz_gt_filter.pcd
+Evaluation Map Path: /home/xchu/data/ltloc_result/parkinglot_parameter_20_all/parkinglot_raw_20_ours_5.0/global_pcd_lidar.pcd
+Estimated-Ground Truth point count: 23376064 / 132012045
+Aligned cloud:  1.00000  0.00010 -0.00000  0.05792
+-0.00010  1.00000 -0.00001 -0.01116
+ 0.00000  0.00001  1.00000  0.00724
+ 0.00000  0.00000  0.00000  1.00000
+Aligned results: 0.98439 23011238
+RMSE/AC: 0.053405286829884 0.044183125633073 0.039791696820837 0.027577807875924 0.000852489413481
+Comp: 0.963019351760844 0.912829935783886 0.866961948769476 0.657254489036307 0.011964589077100
+FULL CD: 173.80147
+VMD: 0.26993
+SCS: 1.05194
+Time load-MME-mesh-ICP-Metric-AC-FCD: 0.00000 0.00000 0.00000 547.31405 280.00260 1.60581 223.06198
+VMD Time voxelization-WD-CDF-SCS: 82.72111 0.02596 0.00356 0.25492
+AC+MME Time: 1.60581
+CD+MME Time: 223.06198
+AWD+SCS Time: 83.00199

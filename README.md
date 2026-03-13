@@ -28,6 +28,10 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 
 ## Timeline
+**`2026/03/12`:** Conditional Accept, we should explain the future work and some metrics.
+
+**`2025/12/15`:** Submit the revision.
+
 **`2025/10/30`:** Major revision, we foucs on polishing the logic of this paper.
 
 **`2025/09/23`:** the baseline codes and data released, including **ME-SR/ME-TSVD/ME-TReg/FCN-SR/O3D/XICP/SuperLoc**!! This codes will help you deeply into the ICP process. Next we will show how to integrate these methods in your own SLAM systems.
@@ -36,7 +40,7 @@ DCReg seamlessly integrates with existing registration pipelines through an effi
 
 
 
-## Quick Start 1235`
+## Quick Start
 
 ### Dependency (Test on Unbuntu 20.04)
 

@@ -1,0 +1,20 @@
+{
+    "CUDA_Devices": "2",
+    "num_iterations": 10,
+    "dataset": "3DLoMatch",
+    "ratio": 0.2,
+    "k1": 30,
+    "k2": 20,
+    "data_path": "data/3DLoMatch",
+    "descriptor": "predator",
+    "inlier_threshold": 0.1,
+    "sigma_d": 0.1,
+    "d_thre": 0.1,
+    "downsample": 0.05,
+    "re_thre": 15,
+    "te_thre": 30,
+    "num_node": 5000,
+    "use_mutual": false,
+    "max_points": 8000,
+    "nms_radius": 0.1
+}

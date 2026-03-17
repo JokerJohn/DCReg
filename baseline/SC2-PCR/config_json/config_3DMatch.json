@@ -1,0 +1,20 @@
+{
+    "CUDA_Devices": "0",
+    "num_iterations": 10,
+    "dataset": "3DMatch",
+    "ratio": 0.2,
+    "k1": 30,
+    "k2": 20,
+    "data_path": "/media/xchu/331b5361-390f-4b2c-ae0e-091c6c0cefad/home/xchu/data/3DMatch/3DMatch",
+    "descriptor": "fpfh",
+    "inlier_threshold": 0.1,
+    "sigma_d": 0.1,
+    "d_thre": 0.1,
+    "downsample": 0.05,
+    "re_thre": 15,
+    "te_thre": 30,
+    "num_node": "all",
+    "use_mutual": false,
+    "max_points": 8000,
+    "nms_radius": 0.1
+}

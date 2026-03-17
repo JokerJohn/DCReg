@@ -1,0 +1,19 @@
+{
+    "CUDA_Devices": "0",
+    "num_iterations": 20,
+    "dataset": "KITTI",
+    "ratio": 0.2,
+    "k1": 30,
+    "k2": 20,
+    "data_path": "/media/xchu/331b5361-390f-4b2c-ae0e-091c6c0cefad/home/xchu/data/kitti/fcgf_test-001/fcgf_test",
+    "descriptor": "fpfh",
+    "inlier_threshold": 0.6,
+    "d_thre": 0.1,
+    "downsample": 0.3,
+    "re_thre": 5,
+    "te_thre": 60,
+    "num_node": 8000,
+    "use_mutual": false,
+    "max_points": 8000,
+    "nms_radius": 0.6
+}

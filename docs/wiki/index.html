@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCReg Documentation</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #152033;
+      --muted: #55627a;
+      --line: #d9e1ec;
+      --accent: #1459c7;
+      --accent-soft: #e8f0ff;
+      --shadow: 0 14px 42px rgba(21, 32, 51, 0.08);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 28%, #f9fbfd 100%);
+      color: var(--text);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+    .hero {
+      background: radial-gradient(circle at top left, rgba(20, 89, 199, 0.12), transparent 42%),
+                  linear-gradient(135deg, #ffffff 0%, #f2f7ff 100%);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 10px 0 0;
+      max-width: 920px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .badge {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .tab-bar {
+      display: inline-flex;
+      gap: 8px;
+      padding: 8px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+    .tab-button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .tab-button.active {
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .lang-panel {
+      display: none;
+      gap: 20px;
+    }
+    .lang-panel.active {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+    }
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .sidebar h3 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .sidebar a {
+      display: block;
+      padding: 8px 0;
+      font-size: 14px;
+    }
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+    }
+    .card h3 {
+      margin: 18px 0 10px;
+      font-size: 18px;
+    }
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+    .card ul,
+    .card ol {
+      padding-left: 20px;
+      margin: 10px 0 0;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: #fcfdff;
+    }
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .figure,
+    .figure-wide {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #f8fbff;
+    }
+    .figure-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    pre {
+      margin: 0;
+      padding: 18px;
+      overflow-x: auto;
+      border-radius: 16px;
+      background: #101522;
+      color: #d8e7ff;
+      border: 1px solid #1f2a42;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th,
+    td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      color: var(--muted);
+      font-weight: 700;
+      background: #f7faff;
+    }
+    .footer-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    @media (max-width: 980px) {
+      .lang-panel.active {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+      .grid-2,
+      .figure-grid,
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="hero">
+      <h1>DCReg Documentation</h1>
+      <p>
+        A bilingual, release-oriented documentation page for the full public DCReg implementation.
+        This page mirrors the current <code>main</code> branch and highlights the three core modules,
+        installation workflow, verified examples, and representative experimental results.
+      </p>
+      <div class="badges">
+        <span class="badge">main: full DCReg release</span>
+        <span class="badge">baseline: historical public snapshot</span>
+        <span class="badge">Dependencies: Eigen + PCL</span>
+        <span class="badge">Optional: TBB / OpenMP</span>
+      </div>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab-button active" data-tab="en">English</button>
+      <button class="tab-button" data-tab="zh">中文</button>
+    </div>
+
+    <section class="lang-panel active" id="panel-en">
+      <aside class="sidebar">
+        <h3>Navigation</h3>
+        <a href="#en-overview">Overview</a>
+        <a href="#en-algorithm">Algorithm</a>
+        <a href="#en-install">Installation</a>
+        <a href="#en-results">Results</a>
+        <a href="#en-demo">Demo Gallery</a>
+        <a href="#en-theory">Technical Insights</a>
+        <a href="#en-branches">Branch Layout</a>
+      </aside>
+
+      <div class="content">
+        <article class="card" id="en-overview">
+          <h2>Overview</h2>
+          <p>
+            DCReg addresses degenerate LiDAR registration by explicitly separating rotation and translation
+            observability through Schur complements, characterizing the resulting weak directions in physical
+            coordinates, and applying a targeted preconditioned solve.
+          </p>
+          <div class="stat-grid">
+            <div class="stat"><strong>3</strong><span>core modules</span></div>
+            <div class="stat"><strong>2</strong><span>runnable executables</span></div>
+            <div class="stat"><strong>1</strong><span>repo-local default simulation</span></div>
+            <div class="stat"><strong>0</strong><span>Ceres / yaml-cpp / Open3D dependency on main</span></div>
+          </div>
+          <img class="figure-wide" src="../../README/image-20250923182814673.png" alt="DCReg overview">
+        </article>
+
+        <article class="card" id="en-algorithm">
+          <h2>Three Core Modules</h2>
+          <div class="grid-2">
+            <div>
+              <h3>Module 1: Spectral Degeneracy Detection</h3>
+              <p>
+                Build the Schur complements for rotation and translation, inspect their spectra,
+                and measure coarse observability before any physical-axis interpretation.
+              </p>
+              <h3>Module 2: Physical-Axis Characterization</h3>
+              <p>
+                Align raw Schur eigenvectors to <code>roll/pitch/yaw</code> and <code>x/y/z</code>,
+                then report the weak mask, aligned eigenvalues, and axis contribution ratios.
+              </p>
+              <h3>Module 3: Preconditioned Solve</h3>
+              <p>
+                Clamp only the weak Schur eigenvalues and solve the normal equation with the resulting
+                targeted preconditioner.
+              </p>
+            </div>
+            <div>
+              <img class="figure" src="../../README/image-20250923182954540.png" alt="Method overview">
+            </div>
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250923183115035.png" alt="Detection figure">
+            <img class="figure" src="../../README/image-20250923183019366.png" alt="Characterization figure">
+          </div>
+        </article>
+
+        <article class="card" id="en-install">
+          <h2>Installation And Usage</h2>
+          <h3>Build</h3>
+          <pre><code>cd DCReg
+mkdir -p build
+cd build
+cmake ..
+cmake --build . -j8</code></pre>
+          <h3>Run</h3>
+          <pre><code>cd DCReg/build
+./dcreg_minimal_example
+./dcreg_runner</code></pre>
+          <p>
+            The default simulation case is repo-local and uses
+            <code>DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>.
+            The parking-lot case remains available in code and can be enabled by editing the test case
+            definitions in <code>DCReg/include/utils.hpp</code>.
+          </p>
+          <h3>Current Outputs</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Executable</th>
+                <th>Purpose</th>
+                <th>Primary Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>dcreg_minimal_example</code></td>
+                <td>Module-by-module characterization demo</td>
+                <td>Three-stage DCReg log</td>
+              </tr>
+              <tr>
+                <td><code>dcreg_runner</code></td>
+                <td>Full simulation runner</td>
+                <td>Per-parameterization accuracy table</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card" id="en-results">
+          <h2>Verified Results</h2>
+          <h3>Minimal Example Log</h3>
+          <pre><code>Synthetic DCReg example
+[Module 1] Spectral degeneracy detection
+cond_full: 1122.345689
+cond_schur_rot: 36.087707
+cond_schur_trans: 742.066396
+
+[Module 2] Physical-axis degeneracy characterization
+degenerate_mask: 001001
+raw_lambda_rot:  1.001796 19.881966 36.152505
+raw_lambda_trans:  0.032394 12.252030 24.038714
+aligned_lambda_rpy: 36.152505 19.881966  1.001796
+aligned_lambda_xyz: 24.038714 12.252030  0.032394
+...
+
+[Module 3] Preconditioned linear solve
+preconditioned_delta:  0.190398 -0.306306 -2.620922  0.095321 -0.515479 41.997563
+pcg_iterations: 6
+pcg_relative_residual: 0.000000
+qr_fallback: 0</code></pre>
+          <h3>Validated Simulation Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Parameterization</th>
+                <th>Iter</th>
+                <th>RMSE</th>
+                <th>Fitness</th>
+                <th>Trans. Error (m)</th>
+                <th>Rot. Error (deg)</th>
+                <th>LinIt</th>
+                <th>QRfb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Euler</td><td>9</td><td>0.0314988</td><td>0.116239</td><td>0.0258485</td><td>0.0516469</td><td>6</td><td>0</td></tr>
+              <tr><td>SE3</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271197</td><td>0.0507196</td><td>6</td><td>0</td></tr>
+              <tr><td>SO3</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
+              <tr><td>Quaternion</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
+            </tbody>
+          </table>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250923174833727.png" alt="Output files">
+            <img class="figure" src="../../README/image-20250923174918310.png" alt="Summary files">
+          </div>
+        </article>
+
+        <article class="card" id="en-demo">
+          <h2>Demo Gallery</h2>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif" alt="PK01 demo">
+            <img class="figure" src="../../README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif" alt="Stairs demo">
+            <img class="figure" src="../../README/corridor_dcreg_x5.gif" alt="Corridor demo">
+            <img class="figure" src="../../README/dcreg_x50.gif" alt="Indoor demo">
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250908194819193.png" alt="Simulation">
+            <img class="figure" src="../../README/image-20250908195036175.png" alt="Real world">
+            <img class="figure" src="../../README/image-20250908195356150.png" alt="Characterization">
+            <img class="figure" src="../../README/image-20250908195549384.png" alt="Runtime">
+          </div>
+        </article>
+
+        <article class="card" id="en-theory">
+          <h2>Technical Insights</h2>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250927011229407.png" alt="Schur 1">
+            <img class="figure" src="../../README/image-20250927011708931.png" alt="Schur 2">
+            <img class="figure" src="../../README/image-20250927011814013.png" alt="Schur 3">
+            <img class="figure" src="../../README/image-20250927012104036.png" alt="Schur 4">
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250927012517409.png" alt="Clamp 1">
+            <img class="figure" src="../../README/image-20250927012609829.png" alt="Clamp 2">
+            <img class="figure" src="../../README/image-20250927012711779.png" alt="Clamp 3">
+            <img class="figure" src="../../README/image-20250927013328016.png" alt="Clamp 4">
+          </div>
+        </article>
+
+        <article class="card" id="en-branches">
+          <h2>Branches And Documentation</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Branch / Folder</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>main</code></td><td>Full public DCReg implementation</td></tr>
+              <tr><td><code>baseline</code></td><td>Historical public release</td></tr>
+              <tr><td><code>wiki/</code></td><td>Bilingual GitHub Wiki source pages</td></tr>
+              <tr><td><code>docs/wiki/</code></td><td>GitHub-Pages-ready tabbed bilingual documentation</td></tr>
+            </tbody>
+          </table>
+          <p class="footer-note">
+            The remote GitHub wiki repository is not currently enabled, so the wiki source is kept in-repo and can be pushed once wiki support is turned on for the repository.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="lang-panel" id="panel-zh">
+      <aside class="sidebar">
+        <h3>导航</h3>
+        <a href="#zh-overview">概览</a>
+        <a href="#zh-algorithm">算法流程</a>
+        <a href="#zh-install">安装与运行</a>
+        <a href="#zh-results">结果与日志</a>
+        <a href="#zh-demo">可视化示例</a>
+        <a href="#zh-theory">理论说明</a>
+        <a href="#zh-branches">分支与文档</a>
+      </aside>
+
+      <div class="content">
+        <article class="card" id="zh-overview">
+          <h2>概览</h2>
+          <p>
+            DCReg 面向退化 LiDAR 配准问题。它首先通过 Schur 补将旋转与平移的可观测性解耦，
+            然后把原始特征空间映射到物理运动轴，最后只在弱约束方向上做针对性的预条件求解。
+          </p>
+          <div class="stat-grid">
+            <div class="stat"><strong>3</strong><span>个核心模块</span></div>
+            <div class="stat"><strong>2</strong><span>个可直接运行的程序</span></div>
+            <div class="stat"><strong>1</strong><span>个仓库内置默认仿真实验</span></div>
+            <div class="stat"><strong>0</strong><span>主分支不再依赖 Ceres / yaml-cpp / Open3D</span></div>
+          </div>
+          <img class="figure-wide" src="../../README/image-20250923182814673.png" alt="DCReg overview">
+        </article>
+
+        <article class="card" id="zh-algorithm">
+          <h2>三个核心模块</h2>
+          <div class="grid-2">
+            <div>
+              <h3>模块 1：谱退化检测</h3>
+              <p>
+                从 ICP 法方程中构造旋转和平移的 Schur 补，并分析它们的谱信息，先得到解耦后的粗粒度可观测性结论。
+              </p>
+              <h3>模块 2：物理轴退化表征</h3>
+              <p>
+                将原始 Schur 特征向量对齐到 <code>roll/pitch/yaw</code> 和 <code>x/y/z</code>，
+                输出退化掩码、物理轴特征值以及各轴贡献比例。
+              </p>
+              <h3>模块 3：预条件线性求解</h3>
+              <p>
+                只对弱方向进行谱钳制，构造针对性的预条件器，再使用 PCG 完成法方程求解。
+              </p>
+            </div>
+            <div>
+              <img class="figure" src="../../README/image-20250923182954540.png" alt="Method overview">
+            </div>
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250923183115035.png" alt="Detection figure">
+            <img class="figure" src="../../README/image-20250923183019366.png" alt="Characterization figure">
+          </div>
+        </article>
+
+        <article class="card" id="zh-install">
+          <h2>安装与运行</h2>
+          <h3>编译</h3>
+          <pre><code>cd DCReg
+mkdir -p build
+cd build
+cmake ..
+cmake --build . -j8</code></pre>
+          <h3>运行</h3>
+          <pre><code>cd DCReg/build
+./dcreg_minimal_example
+./dcreg_runner</code></pre>
+          <p>
+            主分支默认仿真数据已经放在仓库内：
+            <code>DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>。
+            停车场真实场景案例仍保留在代码中，但需要你在
+            <code>DCReg/include/utils.hpp</code> 里改成本地数据路径。
+          </p>
+        </article>
+
+        <article class="card" id="zh-results">
+          <h2>结果与日志</h2>
+          <h3>最小示例日志</h3>
+          <pre><code>Synthetic DCReg example
+[Module 1] Spectral degeneracy detection
+cond_full: 1122.345689
+cond_schur_rot: 36.087707
+cond_schur_trans: 742.066396
+
+[Module 2] Physical-axis degeneracy characterization
+degenerate_mask: 001001
+raw_lambda_rot:  1.001796 19.881966 36.152505
+raw_lambda_trans:  0.032394 12.252030 24.038714
+aligned_lambda_rpy: 36.152505 19.881966  1.001796
+aligned_lambda_xyz: 24.038714 12.252030  0.032394
+...
+
+[Module 3] Preconditioned linear solve
+preconditioned_delta:  0.190398 -0.306306 -2.620922  0.095321 -0.515479 41.997563
+pcg_iterations: 6
+pcg_relative_residual: 0.000000
+qr_fallback: 0</code></pre>
+          <h3>验证过的默认仿真结果</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>参数化</th>
+                <th>迭代次数</th>
+                <th>RMSE</th>
+                <th>Fitness</th>
+                <th>平移误差 (m)</th>
+                <th>旋转误差 (deg)</th>
+                <th>LinIt</th>
+                <th>QRfb</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Euler</td><td>9</td><td>0.0314988</td><td>0.116239</td><td>0.0258485</td><td>0.0516469</td><td>6</td><td>0</td></tr>
+              <tr><td>SE3</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271197</td><td>0.0507196</td><td>6</td><td>0</td></tr>
+              <tr><td>SO3</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
+              <tr><td>Quaternion</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card" id="zh-demo">
+          <h2>可视化示例</h2>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif" alt="PK01 demo">
+            <img class="figure" src="../../README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif" alt="Stairs demo">
+            <img class="figure" src="../../README/corridor_dcreg_x5.gif" alt="Corridor demo">
+            <img class="figure" src="../../README/dcreg_x50.gif" alt="Indoor demo">
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250908194819193.png" alt="Simulation">
+            <img class="figure" src="../../README/image-20250908195036175.png" alt="Real world">
+            <img class="figure" src="../../README/image-20250908195356150.png" alt="Characterization">
+            <img class="figure" src="../../README/image-20250908195549384.png" alt="Runtime">
+          </div>
+        </article>
+
+        <article class="card" id="zh-theory">
+          <h2>理论说明</h2>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250927011229407.png" alt="Schur 1">
+            <img class="figure" src="../../README/image-20250927011708931.png" alt="Schur 2">
+            <img class="figure" src="../../README/image-20250927011814013.png" alt="Schur 3">
+            <img class="figure" src="../../README/image-20250927012104036.png" alt="Schur 4">
+          </div>
+          <div class="figure-grid">
+            <img class="figure" src="../../README/image-20250927012517409.png" alt="Clamp 1">
+            <img class="figure" src="../../README/image-20250927012609829.png" alt="Clamp 2">
+            <img class="figure" src="../../README/image-20250927012711779.png" alt="Clamp 3">
+            <img class="figure" src="../../README/image-20250927013328016.png" alt="Clamp 4">
+          </div>
+        </article>
+
+        <article class="card" id="zh-branches">
+          <h2>分支与文档结构</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>分支 / 目录</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>main</code></td><td>完整公开的 DCReg 主实现</td></tr>
+              <tr><td><code>baseline</code></td><td>原始公开快照</td></tr>
+              <tr><td><code>wiki/</code></td><td>中英文 GitHub Wiki Markdown 源页</td></tr>
+              <tr><td><code>docs/wiki/</code></td><td>支持中英文 tab 切换的网页文档</td></tr>
+            </tbody>
+          </table>
+          <p class="footer-note">
+            目前远程 GitHub Wiki 还没有启用，所以 wiki 内容先放在仓库里；启用 wiki 功能后即可直接同步这些页面。
+          </p>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.tab-button');
+    const panels = {
+      en: document.getElementById('panel-en'),
+      zh: document.getElementById('panel-zh'),
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = button.dataset.tab;
+        buttons.forEach((item) => item.classList.toggle('active', item === button));
+        Object.entries(panels).forEach(([key, panel]) => {
+          panel.classList.toggle('active', key === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

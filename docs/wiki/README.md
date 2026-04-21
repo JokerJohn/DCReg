@@ -25,4 +25,4 @@ Those files are also mirrored to the repository GitHub Wiki:
 
 - https://github.com/JokerJohn/DCReg/wiki
 
-The `docs/wiki/index.html` page remains useful as the polished bilingual web view because it supports the tabbed interface directly.
+The `docs/wiki/index.html` page remains useful as the polished bilingual web view because it supports the tabbed interface directly, while the GitHub Wiki is the default public-facing documentation entry.

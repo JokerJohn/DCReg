@@ -323,18 +323,14 @@
         <article class="card" id="en-install">
           <h2>Installation And Usage</h2>
           <h3>Build</h3>
-          <pre><code>cd DCReg
-mkdir -p build
-cd build
-cmake ..
-cmake --build . -j8</code></pre>
+          <pre><code>cmake -S DCReg -B DCReg/build
+cmake --build DCReg/build -j8</code></pre>
           <h3>Run</h3>
-          <pre><code>cd DCReg/build
-./dcreg_minimal_example
-./dcreg_runner</code></pre>
+          <pre><code>./DCReg/build/dcreg_minimal_example
+./DCReg/build/dcreg_runner</code></pre>
           <p>
             The default simulation case is repo-local and uses
-            <code>DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>.
+            <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>.
             The parking-lot case remains available in code and can be enabled by editing the test case
             definitions in <code>DCReg/include/utils.hpp</code>.
           </p>
@@ -460,7 +456,7 @@ qr_fallback: 0</code></pre>
             </tbody>
           </table>
           <p class="footer-note">
-            The remote GitHub wiki repository is not currently enabled, so the wiki source is kept in-repo and can be pushed once wiki support is turned on for the repository.
+            The core bilingual pages are already mirrored to the GitHub Wiki. The tabbed HTML page remains useful as a more polished web-style documentation view.
           </p>
         </article>
       </div>
@@ -529,14 +525,13 @@ qr_fallback: 0</code></pre>
 mkdir -p build
 cd build
 cmake ..
-cmake --build . -j8</code></pre>
+cmake --build DCReg/build -j8</code></pre>
           <h3>运行</h3>
-          <pre><code>cd DCReg/build
-./dcreg_minimal_example
-./dcreg_runner</code></pre>
+          <pre><code>./DCReg/build/dcreg_minimal_example
+./DCReg/build/dcreg_runner</code></pre>
           <p>
             主分支默认仿真数据已经放在仓库内：
-            <code>DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>。
+            <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>。
             停车场真实场景案例仍保留在代码中，但需要你在
             <code>DCReg/include/utils.hpp</code> 里改成本地数据路径。
           </p>
@@ -636,7 +631,7 @@ qr_fallback: 0</code></pre>
             </tbody>
           </table>
           <p class="footer-note">
-            目前远程 GitHub Wiki 还没有启用，所以 wiki 内容先放在仓库里；启用 wiki 功能后即可直接同步这些页面。
+            目前核心的中英文页面已经同步到 GitHub Wiki，而这个 tab 页面更适合做网页式浏览入口。
           </p>
         </article>
       </div>
@@ -662,4 +657,3 @@ qr_fallback: 0</code></pre>
   </script>
 </body>
 </html>
-

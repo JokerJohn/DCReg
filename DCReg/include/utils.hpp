@@ -615,7 +615,7 @@ inline std::string RepoPath(const std::string& relative_path) {
 inline const TestCase kShiftedCylinderCase = [] {
   TestCase test_case;
   test_case.name = "shifted_cylinder";
-  test_case.folder_path = RepoPath("dataset/shifted_cylinder/");
+  test_case.folder_path = RepoPath("data/shifted_cylinder/");
   test_case.source_pcd = "measured_cloud_shifted_cylinder.pcd";
   test_case.target_pcd = "measured_cloud_shifted_cylinder.pcd";
   test_case.initial_pose = PoseFromDegrees(0.2, 0.8, 0.5, 0.1, 0.1, 2.0);

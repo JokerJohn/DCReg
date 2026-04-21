@@ -1,6 +1,10 @@
 # Installation and Quick Start
 
-## Dependencies On `main`
+> Language: [English](Installation-and-Quick-Start) | [中文](Installation-and-Quick-Start.zh-CN)
+
+## Dependencies
+
+Tested on Ubuntu 20.04 with C++17.
 
 Required:
 
@@ -20,32 +24,29 @@ No longer required on `main`:
 
 ## Build
 
+From the repository root:
+
 ```bash
-cd DCReg
-mkdir -p build
-cd build
-cmake ..
-cmake --build . -j8
+cmake -S DCReg -B DCReg/build
+cmake --build DCReg/build -j8
 ```
 
 ## Run
 
 ```bash
-cd DCReg/build
-./dcreg_minimal_example
-./dcreg_runner
+./DCReg/build/dcreg_minimal_example
+./DCReg/build/dcreg_runner
 ```
 
-## Default Inputs
+## Default Sample Data
 
-The default simulation case is now repo-local:
+The default synthetic input is shipped inside the repository:
 
-- `DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`
+- [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
 
-The parking-lot case still exists in code, but it requires your local data path.
+The parking-lot case is still available in code, but it expects your local data path.
 
 ## Executables
 
-- `dcreg_minimal_example`: prints the three core DCReg modules
-- `dcreg_runner`: runs the verified simulation pipeline and compares parameterizations
-
+- `dcreg_minimal_example`: prints the three DCReg modules directly
+- `dcreg_runner`: runs the verified simulation pipeline across parameterizations

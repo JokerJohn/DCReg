@@ -13,57 +13,33 @@
 [![GitHub Stars](https://img.shields.io/github/stars/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/JokerJohn/DCReg.svg)](https://github.com/JokerJohn/DCReg/issues)
 
-[GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki) | [English Wiki Source](./wiki/Home.md) | [中文 Wiki 源文档](./wiki/Home.zh-CN.md) | [Tabbed Web Docs](./docs/wiki/README.md)
+[GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki)
 
 </div>
 
 ![Overview](./README/image-20250923182814673.png)
 
-**DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a Schur-complement-based framework for degenerate LiDAR registration. It detects weak observability in decoupled rotation and translation subspaces, maps the raw eigenspace into physical motion axes, and stabilizes only the degenerate directions through a targeted preconditioned solve.
+**DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework for degenerate LiDAR registration. It decouples rotation and translation observability with Schur complements, maps eigenspaces into physical motion axes, and stabilizes only the weak directions through targeted preconditioning.
 
-This repository now exposes the **full public DCReg implementation on `main`**. The historical public snapshot that focused on baseline algorithms and released result files is preserved on the **`baseline`** branch.
+The `main` branch now contains the **full public DCReg implementation**. The earlier public snapshot, which focused on baseline algorithms and historical result assets, is preserved on the **`baseline`** branch.
 
 ## Highlights
 
-- **Full DCReg release on `main`**: the Schur-based detection, physical-axis characterization, and preconditioned solver are now fully public.
-- **Baseline preserved**: the previous public code snapshot is kept on the `baseline` branch for comparison and reproducibility.
-- **Compact integration surface**: the current implementation is centered on [DCReg/include/dcreg.hpp](./DCReg/include/dcreg.hpp) and [DCReg/include/utils.hpp](./DCReg/include/utils.hpp).
-- **Reduced dependency footprint**: `main` requires only `Eigen + PCL`, with optional `TBB/OpenMP`; `Ceres`, `yaml-cpp`, and `Open3D` are no longer required.
-- **Two runnable entry points**: a full simulation runner and a minimal module-by-module characterization example.
+- Full DCReg release on `main`, including the Schur-based characterization module and the preconditioned solver.
+- Lightweight runtime stack on `main`: `Eigen + PCL`, with optional `TBB/OpenMP`.
+- Baseline-oriented public release preserved on `baseline` for historical comparison and reproducibility.
+- Bundled sample input for the default synthetic case, so the repo can run out of the box.
+- Bilingual project documentation available on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).
 
-## Release Status
+## News And Timeline
 
-| Branch | Scope | Typical Use |
-| --- | --- | --- |
-| `main` | Verified full DCReg implementation | Run DCReg, inspect characterization logs, integrate into SLAM |
-| `baseline` | Historical public release | Reproduce the earlier baseline-oriented public snapshot |
-
-Repository layout:
-
-- [DCReg/](./DCReg): current C++ implementation on `main`
-- [baseline/](./baseline): reference baseline projects and historical support code
-- [results/](./results): published experiment artifacts and paper-facing result files
-- [wiki/](./wiki): bilingual wiki Markdown source
-- [docs/wiki/](./docs/wiki): GitHub-Pages-ready bilingual tabbed documentation page
-
-## News
-
-- **2026/04/21**: released the verified full DCReg code on `main`; preserved the previous public release on `baseline`; added a compact minimal example and repo-local default simulation input.
+- **2026/04/21**: released the verified full DCReg implementation on `main`, preserved the older public snapshot on `baseline`, and bundled the default synthetic sample data directly inside the repository.
+- **2026/03/31**: updated the second arXiv version and corrected the theoretical issue in the structured preconditioner analysis.
+- **2026/03/12**: received a conditional acceptance and started the final clarification and revision cycle.
+- **2025/12/15**: submitted the revision.
+- **2025/10/30**: completed a major revision focused on clarifying the logic and presentation of the paper.
 - **2025/09/23**: released baseline codes and data, including `ME-SR`, `ME-TSVD`, `ME-TReg`, `FCN-SR`, `O3D`, `XICP`, and `SuperLoc`.
-- **2025/09/09**: paper preprint released on arXiv.
-
-## Why DCReg
-
-DCReg is built around three core modules:
-
-1. **Spectral degeneracy detection**  
-   Build Schur complements for rotation and translation and inspect their spectra.
-2. **Physical-axis degeneracy characterization**  
-   Align raw Schur eigenvectors to `roll/pitch/yaw` and `x/y/z`, then quantify contribution ratios and weak directions.
-3. **Preconditioned linear solve**  
-   Clamp only the weak eigenvalues and solve the resulting system with a targeted PCG update.
-
-The current `main` branch exposes these three steps both in the full runner and in a minimal standalone example.
+- **2025/09/09**: released the preprint on [arXiv](https://arxiv.org/abs/2509.06285).
 
 ## Quick Start
 
@@ -71,55 +47,45 @@ The current `main` branch exposes these three steps both in the full runner and 
 
 Tested on Ubuntu 20.04 with C++17.
 
-#### `main`
-
-| Required | Optional |
+| Category | Packages |
 | --- | --- |
-| Eigen3 | TBB |
-| PCL | OpenMP |
-
-#### `baseline`
-
-The historical `baseline` branch follows the earlier release and still depends on the older stack, including `Open3D`, `Ceres`, and `yaml-cpp`.
+| Required on `main` | Eigen3, PCL |
+| Optional on `main` | TBB, OpenMP |
+| No longer required on `main` | Ceres, `yaml-cpp`, Open3D |
+| Historical `baseline` branch | keeps the older dependency stack used in the first public release |
 
 ### Build
 
+From the repository root:
+
 ```bash
-cd DCReg
-mkdir -p build
-cd build
-cmake ..
-cmake --build . -j8
+cmake -S DCReg -B DCReg/build
+cmake --build DCReg/build -j8
 ```
-
-This builds:
-
-- `dcreg_runner`: full simulation runner with `Algorithm::kNone` and `Algorithm::kDCReg`
-- `dcreg_minimal_example`: compact module-by-module DCReg example
 
 ### Run
 
 ```bash
-cd DCReg/build
-./dcreg_minimal_example
-./dcreg_runner
+./DCReg/build/dcreg_minimal_example
+./DCReg/build/dcreg_runner
 ```
 
-The default simulation input on `main` is repo-local:
+### Bundled Sample Data
 
-- [DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd](./DCReg/dataset/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
+The default synthetic input is shipped inside the repository:
 
-The real-world parking-lot case is still present in code, but it expects your local dataset path. Edit [DCReg/include/utils.hpp](./DCReg/include/utils.hpp) if you want to run that case.
+- [DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd](./DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
 
-## Output And Logs
+The default `shifted_cylinder` preset in [DCReg/include/utils.hpp](./DCReg/include/utils.hpp) already points to this relative path.
 
-The old release already exposed ICP result summaries and point-cloud outputs. Those result assets remain in the repository, while `main` additionally exposes a minimal log that mirrors the three DCReg modules.
+The parking-lot case is still available in code, but it expects your own local real-world data path.
 
-| Output Files | Summary Files |
-| --- | --- |
-| ![Output files](./README/image-20250923174833727.png) | ![Summary files](./README/image-20250923174918310.png) |
+### What The Two Executables Are For
 
-### Example Log From `dcreg_minimal_example`
+- `dcreg_minimal_example`: prints the three core DCReg modules and is the cleanest entry point for integrating the solver into another SLAM system.
+- `dcreg_runner`: runs the verified synthetic registration pipeline and compares four parameterizations under the same implementation.
+
+### Representative Minimal-Example Log
 
 ```text
 Synthetic DCReg example
@@ -154,9 +120,26 @@ pcg_relative_residual: 0.000000
 qr_fallback: 0
 ```
 
-## Verified Simulation Result On `main`
+## Method Overview
 
-The default `shifted_cylinder` case was re-validated after the full-release sync:
+![Method overview](./README/image-20250923182954540.png)
+
+DCReg is organized around three core modules:
+
+1. **Spectral degeneracy detection**  
+   Build Schur complements for rotation and translation and inspect their spectra.
+2. **Physical-axis degeneracy characterization**  
+   Align raw Schur eigenvectors to `roll/pitch/yaw` and `x/y/z`, then quantify contribution ratios and weak directions.
+3. **Preconditioned linear solve**  
+   Clamp only the weak aligned eigenvalues and solve the normal equation with a targeted PCG update.
+
+| Schur-Based Detection | Physical-Axis Mapping |
+| --- | --- |
+| ![Detection](./README/image-20250923183115035.png) | ![Characterization](./README/image-20250923183019366.png) |
+
+## Verified Results On `main`
+
+The default `shifted_cylinder` case was re-validated after the full public release sync:
 
 | Parameterization | Iter | RMSE | Fitness | Translation Error (m) | Rotation Error (deg) | LinIt | QRfb |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -165,31 +148,21 @@ The default `shifted_cylinder` case was re-validated after the full-release sync
 | SO3 | 10 | 0.0315708 | 0.116636 | 0.0271196 | 0.0507195 | 6 | 0 |
 | Quaternion | 10 | 0.0315708 | 0.116636 | 0.0271196 | 0.0507195 | 6 | 0 |
 
-## Method Overview
+## Baselines And Data
 
-![Method overview](./README/image-20250923182954540.png)
-
-| Schur-Based Detection | Physical-Axis Mapping |
-| --- | --- |
-| ![Detection](./README/image-20250923183115035.png) | ![Characterization](./README/image-20250923183019366.png) |
-
-## Baselines And Dataset
-
-The previous release already shipped the baseline ecosystem and dataset/result folders. These are still retained in this repository and now coexist with the full DCReg implementation.
+The `baseline` branch still preserves the original public release, including the broader baseline ecosystem and historical result assets.
 
 | Baseline Release Overview |
 | --- |
 | ![Baseline](./README/image-20250909214128111.png) |
 
-| Dataset And Outputs | Branch/Release Context |
+| Dataset Context | Release Context |
 | --- | --- |
 | ![Dataset](./README/image-20250908194514540.png) | ![Release context](./README/image-20250908194526477.png) |
 
-### Test Data
+Additional external real-world test data remains available here:
 
-The original simulation and parking-lot test data link remains:
-
-- [Cylinder and Parking-lot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link)
+- [Cylinder and parking-lot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link)
 
 ## Video Demo
 
@@ -198,9 +171,9 @@ The original simulation and parking-lot test data link remains:
 | Scenario | Characterization Example | Interpretation |
 | --- | --- | --- |
 | ![pk01](./README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![pk01-characterization](./README/image-20250910213549613.png) | Planar degeneracy with dominant weak directions in `X-Y-Yaw`; see Fig. 16 in the paper. |
-| ![stairs](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif) | ![stairs-characterization](./README/image-20250910213208822.png) | Sparse geometry in narrow stairs; weak directions move between `t2` and `r0-r1`; see Fig. 17. |
+| ![stairs](./README/45fc2afe-c7f9-41a1-ab93-e8cd96ee0d16.gif) | ![stairs-characterization](./README/image-20250910213208822.png) | Sparse geometry in narrow stairs; weak directions move between `t2` and `r0-r1`; see Fig. 17 in the paper. |
 | ![corridor](./README/corridor_dcreg_x5.gif) | ![corridor-characterization](./README/image-20250910213259165.png) | Narrow-passage degeneracy, typically `r0-t0` or `r0` depending on the measurements. |
-| ![indoor](./README/dcreg_x50.gif) | ![indoor-characterization](./README/image-20250910213415142.png) | Rich local points inside a geometrically narrow environment, often yielding `r0-t0` or `r0`. |
+| ![indoor](./README/dcreg_x50.gif) | ![indoor-characterization](./README/image-20250910213415142.png) | Rich local structure inside geometrically narrow environments, often yielding `r0-t0` or `r0`. |
 
 ## Experimental Results
 
@@ -250,7 +223,7 @@ The original simulation and parking-lot test data link remains:
 | --- | --- |
 | ![Ablation](./README/image-20250908195458538.png) | ![Hybrid](./README/image-20250908195511133.png) |
 
-### Run-Time Analysis
+### Runtime Analysis
 
 | Runtime | Runtime Detail |
 | --- | --- |
@@ -262,7 +235,7 @@ The original simulation and parking-lot test data link remains:
   <img src="./README/image-20250913000546827.png" alt="Parameter study" />
 </div>
 
-## Technical Insights
+## Technical Notes
 
 ### Schur Conditioning
 
@@ -270,49 +243,20 @@ The original simulation and parking-lot test data link remains:
 | --- | --- |
 | ![Schur 1](./README/image-20250927011229407.png) | `S_R` is the Hessian of the rotation subproblem after optimally accommodating translation, so its spectrum reflects rotation observability without translation-scale contamination. |
 | ![Schur 2](./README/image-20250927011708931.png) | The Schur projection removes the component of `range(J_R)` that can be explained by `J_t`, preserving only irreducible rotation information. |
-| ![Schur 3](./README/image-20250927011814013.png) | This explains why Schur complements naturally reduce sensitivity to unit/scale disparities between radians and meters. |
-| ![Schur 4](./README/image-20250927012104036.png) | `kappa(S_R)` can differ substantially from `kappa(H_RR)` when cross-coupling is strong, which is exactly why coupled weak directions must be separated before analysis. |
+| ![Schur 3](./README/image-20250927011814013.png) | This explains why Schur complements naturally reduce sensitivity to unit and scale disparities between radians and meters. |
+| ![Schur 4](./README/image-20250927012104036.png) | `kappa(S_R)` can differ substantially from `kappa(H_RR)` when cross-coupling is strong, which is exactly why coupled weak directions should be analyzed after decoupling. |
 
 ### Eigenvalue Clamping In Subspace
 
 | Figure | Interpretation |
 | --- | --- |
-| ![Clamp 1](./README/image-20250927012517409.png) ![Clamp 2](./README/image-20250927012609829.png) | DCReg clamps only the weak eigenvalues in the decoupled subspace instead of blindly overwriting the full coupled Hessian. |
-| ![Clamp 3](./README/image-20250927012711779.png) ![Clamp 4](./README/image-20250927013328016.png) | The same operation can be interpreted as targeted regularization confined to the weak directions. |
-
-## FAQ
-
-### What changed from the old public release?
-
-The old public release emphasized the baseline ecosystem and historical result files. The current `main` branch now includes the verified DCReg algorithm itself, the lightweight characterization example, and the reduced-dependency build path.
-
-### Where should I start if I want to integrate DCReg into another SLAM system?
-
-Start from:
-
-- [DCReg/include/dcreg.hpp](./DCReg/include/dcreg.hpp)
-- [DCReg/include/utils.hpp](./DCReg/include/utils.hpp)
-- [DCReg/src/dcreg_minimal_example.cpp](./DCReg/src/dcreg_minimal_example.cpp)
-
-The minimal example mirrors the three algorithmic modules and is the cleanest entry point for integration.
-
-### What do I get from the historical baseline branch?
-
-The `baseline` branch still exposes:
-
-- different pose parameterizations for ICP, such as `SE(3)`, `SO(3)+R^3`, quaternion, and Euler
-- different optimization implementations, such as manual Eigen solvers and older Ceres-based paths
-- different parallel backends, including OpenMP and TBB
+| ![Clamp 1](./README/image-20250927012517409.png) ![Clamp 2](./README/image-20250927012609829.png) | DCReg clamps only the weak eigenvalues in the decoupled subspace instead of overwriting the full coupled Hessian. |
+| ![Clamp 3](./README/image-20250927012711779.png) ![Clamp 4](./README/image-20250927013328016.png) | The same operation can also be interpreted as targeted regularization confined to the weak directions. |
 
 ## Documentation
 
-This repository now contains two complementary documentation layers:
-
-- [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki): synchronized bilingual wiki pages for algorithm details, installation, and experiment results
-- [wiki/](./wiki): in-repo bilingual Markdown source for the wiki content
-- [docs/wiki/](./docs/wiki/README.md): GitHub-Pages-ready bilingual documentation with a tabbed HTML page
-
-The GitHub Wiki now mirrors the core bilingual pages. The tabbed HTML page remains in `docs/wiki/` because it is better suited to a polished web-doc view than the standard GitHub Wiki renderer.
+Public-facing documentation lives on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).  
+For maintainers, the editable wiki source remains in [wiki/](./wiki), and the optional tabbed HTML documentation remains in [docs/wiki/](./docs/wiki).
 
 ## Citation
 
@@ -332,7 +276,7 @@ The GitHub Wiki now mirrors the core bilingual pages. The tabbed HTML page remai
 
 The authors gratefully acknowledge the valuable contributions that made this work possible.
 
-- We extend special thanks to [Dr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that helped refine the theoretical framework presented in this work.
+- We extend special thanks to [Dr. Binqian Jiang](https://github.com/lewisjiang) and [Dr. Jianhao Jiao](https://gogojjh.github.io/) for their insightful discussions that helped refine the theoretical framework of this work.
 - We also appreciate [Mr. Turcan Tuna](https://www.turcantuna.com/) for his technical assistance with the baseline XICP implementation.
 
 ## Contributors

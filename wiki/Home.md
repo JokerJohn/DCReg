@@ -14,10 +14,10 @@
 
 ## Highlights
 
-- Full DCReg implementation is publicly available on the `main` branch.
-- The historical public snapshot is preserved on the `baseline` branch.
-- The current release depends on `Eigen + PCL`, with optional `TBB/OpenMP`.
-- The default synthetic input is shipped inside the repository.
+- Schur-complement-based spectral degeneracy detection removes misleading rotation-translation coupling before observability analysis.
+- Physical-axis characterization maps weak modes to `roll/pitch/yaw` and `x/y/z` with aligned eigenvalues and contribution ratios.
+- Targeted preconditioning stabilizes only the weak directions instead of damping the full coupled system.
+- Lightweight runtime stack: `Eigen + PCL`, with optional `TBB/OpenMP`.
 
 ## Repository Links
 
@@ -29,4 +29,4 @@
 
 - Runtime code lives under [`DCReg/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg).
 - The default sample input is [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd).
-- The tabbed HTML docs remain in [`docs/wiki/index.html`](https://github.com/JokerJohn/DCReg/blob/main/docs/wiki/index.html) for maintainers who want a custom web-style view.
+- Next up: an open-source DCReg-based localization system that demonstrates integration into larger pipelines.

@@ -14,10 +14,10 @@
 
 ## 项目亮点
 
-- `main` 分支已经完整公开 DCReg 实现。
-- `baseline` 分支保留了早期公开的 baseline 代码快照。
-- 当前公开版本只依赖 `Eigen + PCL`，`TBB/OpenMP` 为可选项。
-- 默认的仿真点云输入已经随仓库一起提供。
+- 基于 Schur 补的谱退化检测，在分析可观测性之前先消除旋转和平移耦合带来的遮蔽效应。
+- 物理轴退化表征把弱方向映射到 `roll/pitch/yaw` 和 `x/y/z`，并给出对齐特征值与贡献比例。
+- 有针对性的预条件只稳定弱方向，而不是对整个耦合系统做统一阻尼。
+- 轻量依赖栈：`Eigen + PCL`，`TBB/OpenMP` 为可选项。
 
 ## 项目入口
 
@@ -29,4 +29,4 @@
 
 - 运行时代码位于 [`DCReg/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg)。
 - 默认示例输入位于 [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)。
-- 如果需要维护自定义网页式文档，仓库中仍保留 [`docs/wiki/index.html`](https://github.com/JokerJohn/DCReg/blob/main/docs/wiki/index.html)。
+- 下一步计划是开源一个基于 DCReg 的定位系统，用来展示它如何整合到更完整的算法管线中。

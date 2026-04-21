@@ -21,25 +21,27 @@
 
 **DCReg** (**D**ecoupled **C**haracterization for ill-conditioned **Reg**istration) is a principled framework for degenerate LiDAR registration. It decouples rotation and translation observability with Schur complements, maps eigenspaces into physical motion axes, and stabilizes only the weak directions through targeted preconditioning.
 
-The `main` branch now contains the **full public DCReg implementation**. The earlier public snapshot, which focused on baseline algorithms and historical result assets, is preserved on the **`baseline`** branch.
+The `main` branch now contains the **full public DCReg implementation**. The earlier baseline-only public snapshot remains available on the separate **`baseline`** branch.
 
 ## Highlights
 
-- Full DCReg release on `main`, including the Schur-based characterization module and the preconditioned solver.
-- Lightweight runtime stack on `main`: `Eigen + PCL`, with optional `TBB/OpenMP`.
-- Baseline-oriented public release preserved on `baseline` for historical comparison and reproducibility.
-- Bundled sample input for the default synthetic case, so the repo can run out of the box.
-- Bilingual project documentation available on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).
+- Schur-complement-based spectral degeneracy detection that removes misleading rotation-translation coupling before observability analysis.
+- Physical-axis characterization that maps weak modes to `roll/pitch/yaw` and `x/y/z`, with aligned eigenvalues and contribution ratios.
+- Targeted preconditioning that stabilizes only the weak directions instead of damping the full coupled system.
+- Lightweight runtime stack: `Eigen + PCL`, with optional `TBB/OpenMP`.
 
 ## News And Timeline
 
-- **2026/04/21**: released the verified full DCReg implementation on `main`, preserved the older public snapshot on `baseline`, and bundled the default synthetic sample data directly inside the repository.
+- **2026/04/21**: released the verified full DCReg implementation on `main`.
 - **2026/03/31**: updated the second arXiv version and corrected the theoretical issue in the structured preconditioner analysis.
-- **2026/03/12**: received a conditional acceptance and started the final clarification and revision cycle.
-- **2025/12/15**: submitted the revision.
-- **2025/10/30**: completed a major revision focused on clarifying the logic and presentation of the paper.
+- **2026/03/12**: received a **Conditional Acceptance** and started the final clarification and revision cycle.
+- **2025/10/30**: completed a **Major Revision** focused on clarifying the logic and presentation of the paper.
 - **2025/09/23**: released baseline codes and data, including `ME-SR`, `ME-TSVD`, `ME-TReg`, `FCN-SR`, `O3D`, `XICP`, and `SuperLoc`.
 - **2025/09/09**: released the preprint on [arXiv](https://arxiv.org/abs/2509.06285).
+
+## Next Up
+
+- Open-source a DCReg-based localization system to show how the method can be integrated into larger pipelines and adapted across different algorithms.
 
 ## Quick Start
 
@@ -49,10 +51,9 @@ Tested on Ubuntu 20.04 with C++17.
 
 | Category | Packages |
 | --- | --- |
-| Required on `main` | Eigen3, PCL |
-| Optional on `main` | TBB, OpenMP |
-| No longer required on `main` | Ceres, `yaml-cpp`, Open3D |
-| Historical `baseline` branch | keeps the older dependency stack used in the first public release |
+| Required | Eigen3, PCL |
+| Optional | TBB, OpenMP |
+| No longer required | Ceres, `yaml-cpp`, Open3D |
 
 ### Build
 
@@ -148,9 +149,9 @@ The default `shifted_cylinder` case was re-validated after the full public relea
 | SO3 | 10 | 0.0315708 | 0.116636 | 0.0271196 | 0.0507195 | 6 | 0 |
 | Quaternion | 10 | 0.0315708 | 0.116636 | 0.0271196 | 0.0507195 | 6 | 0 |
 
-## Baselines And Data
+## Legacy Release Context
 
-The `baseline` branch still preserves the original public release, including the broader baseline ecosystem and historical result assets.
+The earlier baseline-oriented public release remains available on the separate `baseline` branch.
 
 | Baseline Release Overview |
 | --- |
@@ -255,8 +256,7 @@ Additional external real-world test data remains available here:
 
 ## Documentation
 
-Public-facing documentation lives on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).  
-For maintainers, the editable wiki source remains in [wiki/](./wiki), and the optional tabbed HTML documentation remains in [docs/wiki/](./docs/wiki).
+Public-facing documentation lives on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).
 
 ## Citation
 

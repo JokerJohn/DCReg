@@ -10,9 +10,9 @@ and diagnostics, while the Python script only handles visualization.
   prediction from `parkinglot_raw_1976_info.txt`.
 - `source_registered.pcd`: the same LiDAR frame transformed by the final DCReg
   registration result.
-- `target_map.pcd`: the full prior map downsampled with a `0.5 m`
-  ground-plane grid for visualization. The registration path still uses the
-  target map loaded by the C++ example.
+- `target_map.pcd`: a `100 m` local crop of the prior map around the final
+  pose, downsampled with a `0.5 m` ground-plane grid for visualization. The
+  registration path still uses the full target map loaded by the C++ example.
 - `diagnostics.json`: DCReg observability diagnostics, including Schur
   condition numbers, aligned eigenvalues, degenerate mask, contribution ratios,
   and the preconditioned linear-solve report.
@@ -29,7 +29,7 @@ python3 scripts/visualize_parking_lot_example.py
 By default, the C++ example exports visualization artifacts to:
 
 ```text
-DCReg/dataset/Parking-Lot-example/visualization
+DCReg/data/Parking-Lot-example/visualization
 ```
 
 Use `--export_vis <dir>` on the C++ executable and pass the same directory to
@@ -51,7 +51,7 @@ If Pillow is not available, the script still saves the raw Open3D screenshot.
 
 ## Visual Encoding
 
-- Gray-scale intensity points: full `0.5 m` sampled prior map.
+- Gray-scale intensity points: `100 m` local prior-map crop sampled at `0.5 m`.
 - Orange intensity points: source frame at the initial prediction.
 - Blue intensity points: source frame after DCReg registration.
 - Amber axes: weakest observable physical axes.
@@ -70,7 +70,7 @@ ratio labels, and `--show_settings --show_open3d_helpers` for Open3D debugging.
 A PNG screenshot is saved automatically as:
 
 ```text
-DCReg/dataset/Parking-Lot-example/visualization/dcreg_parking_lot_view.png
+DCReg/data/Parking-Lot-example/visualization/dcreg_parking_lot_view.png
 ```
 
 The screenshot uses Open3D's stable static rendering path with a black

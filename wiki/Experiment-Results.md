@@ -38,7 +38,7 @@ Current exported diagnostics for the bundled `pk01-1976` frame:
 - Final RMSE: 0.053225
 - Final fitness: 0.060365
 - Degenerate mask: `000100`, corresponding to a weak physical `x` translation axis
-- Visualization: black background, intensity-colored target/source clouds, compact degeneracy card, and highlighted weak axis
+- Visualization: black background, intensity-colored target/source clouds, `100 m` local target-map crop, compact degeneracy card, and highlighted weak axis
 
 ### Paper Figures
 

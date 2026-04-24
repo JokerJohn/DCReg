@@ -30,5 +30,5 @@
 
 - Runtime code lives under [`DCReg/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg).
 - The default sample input is [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd).
-- The parking-lot source frame is bundled under [`DCReg/dataset/Parking-Lot-example/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg/dataset/Parking-Lot-example); download the large prior map from the README data link before running the real-scene demo.
+- The parking-lot source frame is bundled under [`DCReg/data/Parking-Lot-example/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg/data/Parking-Lot-example); download the large prior map from the README data link before running the real-scene demo.
 - Next up: an open-source DCReg-based localization system that demonstrates integration into larger pipelines.

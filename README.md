@@ -93,33 +93,26 @@ python3 scripts/visualize_parking_lot_example.py
 
 The visualization uses a black background, intensity-colored point clouds, a
 compact diagnostic card, and the detected weak/degenerate physical axes.
+For readability, the exported target map is a `100 m` local crop of the prior
+map around the final pose, downsampled at `0.5 m` while preserving intensity.
 In the bundled `pk01-1976` frame, the current run converges in 5 iterations
 from the provided prior pose and characterizes the weakest translational
 direction along the physical `x` axis.
 
 ### Bundled Sample Data
 
-The default synthetic input is shipped inside the repository:
-
-- [DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd](./DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
-
-The default `shifted_cylinder` preset in [DCReg/include/utils.hpp](./DCReg/include/utils.hpp) already points to this relative path.
-
-The parking-lot source frame and initial-pose metadata are also included:
-
-- [DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd](./DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd)
-- [DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt](./DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt)
-
-The prior map is intentionally not committed because it is large. Download it
-from the external real-world data link below and place it as:
-
-```text
-DCReg/dataset/Parking-Lot-example/prior_map.pcd
-```
-
-External real-world data:
+Small demo inputs are bundled under `DCReg/data/` so the synthetic runner and
+parking-lot source frame are easy to inspect. The complete data package,
+including the large parking-lot prior map, is provided externally:
 
 - [Cylinder and parking-lot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link)
+
+For the parking-lot demo, download `prior_map.pcd` from that link and place it
+as:
+
+```text
+DCReg/data/Parking-Lot-example/prior_map.pcd
+```
 
 ### What The Executables Are For
 

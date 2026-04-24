@@ -649,7 +649,7 @@ inline const TestCase kShiftedCylinderLongRunCase = [] {
 inline const TestCase kParkingLotPk01Case = [] {
   TestCase test_case;
   test_case.name = "parking_lot_pk01";
-  test_case.folder_path = RepoPath("dataset/Parking-Lot-example/");
+  test_case.folder_path = RepoPath("data/Parking-Lot-example/");
   test_case.source_pcd = "parkinglot_raw_1976_frame.pcd";
   test_case.target_pcd = "prior_map.pcd";
   test_case.initial_pose = PoseFromRadians(

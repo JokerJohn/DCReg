@@ -334,7 +334,7 @@ cmake --build DCReg/build -j8</code></pre>
             The default simulation case is repo-local and uses
             <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>.
             The parking-lot source frame and pose metadata are also bundled under
-            <code>DCReg/dataset/Parking-Lot-example/</code>. The large prior map is external and should
+            <code>DCReg/data/Parking-Lot-example/</code>. The large prior map is external and should
             be downloaded from the README data link as <code>prior_map.pcd</code>.
           </p>
           <h3 id="en-parking">Parking-Lot Real-Scene Demo</h3>
@@ -424,7 +424,8 @@ qr_fallback: 0</code></pre>
           <p>
             The bundled <code>pk01-1976</code> frame converges in 5 iterations with RMSE 0.053225,
             fitness 0.060365, and degeneracy mask <code>000100</code>, corresponding to a weak
-            physical <code>x</code> translation axis.
+            physical <code>x</code> translation axis. The target map shown below is a <code>100 m</code>
+            local crop around the final pose.
           </p>
           <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
           <div class="figure-grid">
@@ -557,7 +558,7 @@ cmake --build DCReg/build -j8</code></pre>
             主分支默认仿真数据已经放在仓库内：
             <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>。
             停车场 source frame 和初始位姿元数据也已经放在
-            <code>DCReg/dataset/Parking-Lot-example/</code>。prior map 体积较大，
+            <code>DCReg/data/Parking-Lot-example/</code>。prior map 体积较大，
             请从 README 数据链接下载并命名为 <code>prior_map.pcd</code>。
           </p>
           <h3 id="zh-parking">停车场真实场景 Demo</h3>
@@ -619,7 +620,8 @@ qr_fallback: 0</code></pre>
           <p>
             当前 <code>pk01-1976</code> 案例 5 次迭代收敛，RMSE 为 0.053225，
             fitness 为 0.060365，退化掩码为 <code>000100</code>，对应物理
-            <code>x</code> 平移方向弱观测。
+            <code>x</code> 平移方向弱观测。下图中的 target map 是最终位姿附近的
+            <code>100 m</code> 局部地图。
           </p>
           <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
         </article>

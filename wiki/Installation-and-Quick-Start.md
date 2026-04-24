@@ -58,20 +58,12 @@ python3 scripts/visualize_parking_lot_example.py
 
 ## Default Sample Data
 
-The default synthetic input is shipped inside the repository:
-
-- [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
-
-The parking-lot source frame is also bundled:
-
-- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd)
-- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt)
-
-The large prior map is not committed. Download it from the real-world data link
-in the README and place it here:
+Small demo inputs are bundled under `DCReg/data/`. The complete data package,
+including the large parking-lot prior map, is linked in the README. For the
+parking-lot demo, place the downloaded map here:
 
 ```text
-DCReg/dataset/Parking-Lot-example/prior_map.pcd
+DCReg/data/Parking-Lot-example/prior_map.pcd
 ```
 
 ## Executables

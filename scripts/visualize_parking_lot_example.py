@@ -8,7 +8,7 @@ exports lightweight artifacts, and Python/Open3D only handles visualization:
   python3 scripts/visualize_parking_lot_example.py
 
 Color convention:
-  gray-scale intensity - 0.5 m ground-plane sampled full prior map
+  gray-scale intensity - 100 m local prior-map crop, 0.5 m sampled
   orange intensity     - source frame transformed by the initial prediction
   blue intensity       - source frame transformed by the final DCReg result
   amber                - weakest observable physical axis
@@ -25,7 +25,7 @@ import sys
 import numpy as np
 
 
-DEFAULT_EXPORT_DIR = Path("DCReg/dataset/Parking-Lot-example/visualization")
+DEFAULT_EXPORT_DIR = Path("DCReg/data/Parking-Lot-example/visualization")
 DEFAULT_SCREENSHOT_NAME = "dcreg_parking_lot_view.png"
 ROT_LABELS = ("roll", "pitch", "yaw")
 TRANS_LABELS = ("x", "y", "z")
@@ -347,7 +347,7 @@ def print_notes(diagnostics: dict) -> None:
     print("-------------------------")
     print("This scene uses a single parking-lot LiDAR frame as source and a prior map")
     print("as target. The source is shown at both the initial prediction and final")
-    print("DCReg result; the target cloud is the full 0.5 m sampled prior map.")
+    print("DCReg result; the target cloud is a 100 m local prior-map crop.")
     print(f"Iterations: {diagnostics['registration']['iterations']}")
     print(f"RMSE: {diagnostics['registration']['rmse']:.6f}")
     print(f"Fitness: {diagnostics['registration']['fitness']:.6f}")
@@ -384,10 +384,9 @@ def geometry_bounds(o3d, geometries: list):
 
 def focus_bounds(o3d, geometries: list):
     # ===== BEGIN CHANGE: focus camera on registration area =====
-    # The target map object is now the full 0.5 m sampled prior map.  Fitting
-    # the camera to that full map makes the source scan and degeneracy axes too
-    # small for a demo.  Keep the full map loaded, but use source/axis geometry
-    # for the default camera and label placement.
+    # The target map object is a 100 m local crop.  The default camera still
+    # focuses on source/axis geometry so the registration displacement and
+    # degeneracy axes remain readable in screenshots.
     # ===== END CHANGE: focus camera on registration area =====
     focus_geometries = geometries[1:] if len(geometries) > 1 else geometries
     return geometry_bounds(o3d, focus_geometries)
@@ -570,7 +569,7 @@ def show_labeled_viewer(
     visualizer.set_background(np.asarray([0.0, 0.0, 0.0, 1.0]), None)
 
     names = [
-        "target_full_voxel_map_intensity",
+        "target_local_voxel_map_intensity",
         "source_initial_prediction_orange",
         "source_registered_dcreg_blue",
         "axis_translation_x",

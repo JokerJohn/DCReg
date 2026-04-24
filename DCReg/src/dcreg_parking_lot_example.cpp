@@ -29,9 +29,10 @@ using IntensityCloudPtr = IntensityCloud::Ptr;
 // this scene has no independent ground-truth pose.
 constexpr float kSourceRangeCropM = 10.0f;
 constexpr float kSourceLeafSizeM = 0.1f;
+constexpr float kTargetVisualizationRadiusM = 100.0f;
 constexpr float kTargetVisualizationLeafSizeM = 0.5f;
 constexpr const char* kDefaultVisualizationDirectory =
-    "dataset/Parking-Lot-example/visualization";
+    "data/Parking-Lot-example/visualization";
 constexpr std::array<const char*, 3> kRotAxisLabels = {"roll", "pitch", "yaw"};
 constexpr std::array<const char*, 3> kTransAxisLabels = {"x", "y", "z"};
 constexpr std::array<const char*, 3> kRotModeLabels = {"mode_r", "mode_p",
@@ -162,10 +163,9 @@ void PrintUsage(const char* program, const TestCase& default_case) {
 }
 
 void PrintDefaultPathHint() {
-  std::cerr << "The default parking-lot sample expects "
-            << dcreg::RepoPath("dataset/Parking-Lot-example/"
-                               "parkinglot_raw_1976_frame.pcd")
-            << " and a downloaded prior_map.pcd in the same directory.\n";
+  std::cerr << "The default parking-lot sample expects the bundled source frame "
+            << "and a downloaded prior_map.pcd under "
+            << dcreg::RepoPath("data/Parking-Lot-example/") << ".\n";
 }
 
 void PrintContributionMatrix(const std::string& title,
@@ -333,6 +333,28 @@ void DownsampleIntensityCloudInPlace(IntensityCloudPtr cloud, float leaf_size_m,
   cloud->swap(filtered);
 }
 
+void CropIntensityTargetAroundCenterInPlace(IntensityCloudPtr target,
+                                            const Eigen::Vector3d& center_world,
+                                            float radius_m) {
+  IntensityCloud cropped;
+  cropped.reserve(target->size());
+
+  const double radius_sq =
+      static_cast<double>(radius_m) * static_cast<double>(radius_m);
+  for (const IntensityPoint& point : target->points) {
+    const double dx = static_cast<double>(point.x) - center_world.x();
+    const double dy = static_cast<double>(point.y) - center_world.y();
+    if (dx * dx + dy * dy <= radius_sq) {
+      cropped.push_back(point);
+    }
+  }
+
+  cropped.width = static_cast<std::uint32_t>(cropped.size());
+  cropped.height = 1;
+  cropped.is_dense = target->is_dense;
+  target->swap(cropped);
+}
+
 IntensityCloud TransformIntensityCloud(const IntensityCloud& source,
                                        const Eigen::Matrix4d& transform) {
   IntensityCloud transformed;
@@ -355,6 +377,7 @@ IntensityCloud TransformIntensityCloud(const IntensityCloud& source,
 }
 
 bool PrepareVisualizationClouds(const TestCase& test_case,
+                                const Eigen::Matrix4d& center_transform,
                                 IntensityCloudPtr source,
                                 IntensityCloudPtr target,
                                 std::string* error_message) {
@@ -369,6 +392,8 @@ bool PrepareVisualizationClouds(const TestCase& test_case,
 
   CropIntensitySourceByRangeInPlace(source, kSourceRangeCropM);
   DownsampleIntensityCloudInPlace(source, kSourceLeafSizeM);
+  CropIntensityTargetAroundCenterInPlace(
+      target, center_transform.block<3, 1>(0, 3), kTargetVisualizationRadiusM);
   DownsampleIntensityCloudInPlace(target, kTargetVisualizationLeafSizeM,
                                   true);
   if (source->empty() || target->empty()) {
@@ -560,11 +585,12 @@ void RunExample(const TestCase& test_case, const RunOptions& options,
 
     const Eigen::Matrix4d initial_transform =
         dcreg::PoseToMatrix(test_case.initial_pose);
-    // ===== BEGIN CHANGE: export full intensity target map =====
+    // ===== BEGIN CHANGE: export local intensity target map =====
     IntensityCloudPtr visualization_source(new IntensityCloud);
     IntensityCloudPtr visualization_target(new IntensityCloud);
     std::string visualization_error;
-    if (!PrepareVisualizationClouds(test_case, visualization_source,
+    if (!PrepareVisualizationClouds(test_case, result.transform,
+                                    visualization_source,
                                     visualization_target,
                                     &visualization_error)) {
       throw std::runtime_error(visualization_error);
@@ -574,7 +600,7 @@ void RunExample(const TestCase& test_case, const RunOptions& options,
         TransformIntensityCloud(*visualization_source, initial_transform);
     const IntensityCloud source_registered_intensity =
         TransformIntensityCloud(*visualization_source, result.transform);
-    // ===== END CHANGE: export full intensity target map =====
+    // ===== END CHANGE: export local intensity target map =====
 
     pcl::io::savePCDFileASCII((output_dir / "source_initial.pcd").string(),
                               source_initial_intensity);
@@ -589,14 +615,17 @@ void RunExample(const TestCase& test_case, const RunOptions& options,
     json << "{\n";
     json << "  \"notes\": \"Parking-lot real-scene DCReg visualization export. "
             "The source cloud is a single LiDAR frame after local preprocessing; "
-            "the visualization target cloud is the full prior map downsampled "
-            "with a 0.5 m ground-plane grid while preserving intensity.\",\n";
+            "the visualization target cloud is a 100 m local prior-map crop "
+            "downsampled with a 0.5 m ground-plane grid while preserving "
+            "intensity.\",\n";
     json << "  \"source_pcd\": \"" << JoinPath(test_case, test_case.source_pcd)
          << "\",\n";
     json << "  \"target_pcd\": \"" << JoinPath(test_case, test_case.target_pcd)
          << "\",\n";
     json << "  \"source_range_crop_m\": " << kSourceRangeCropM << ",\n";
     json << "  \"source_voxel_leaf_size_m\": " << kSourceLeafSizeM << ",\n";
+    json << "  \"target_visualization_radius_m\": "
+         << kTargetVisualizationRadiusM << ",\n";
     json << "  \"target_visualization_voxel_leaf_size_m\": "
          << kTargetVisualizationLeafSizeM << ",\n";
     json << "  \"point_counts\": {\n";

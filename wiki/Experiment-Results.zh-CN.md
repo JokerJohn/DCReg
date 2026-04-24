@@ -36,7 +36,7 @@ source frame 和初始位姿元数据；prior map 体积较大，仍通过 READM
 - 最终 RMSE：0.053225
 - 最终 fitness：0.060365
 - 退化掩码：`000100`，对应物理 `x` 平移方向弱观测
-- 可视化：黑色背景、按 intensity 着色的 target/source 点云、紧凑退化诊断卡片和高亮弱轴
+- 可视化：黑色背景、按 intensity 着色的 target/source 点云、`100 m` 局部 target map、紧凑退化诊断卡片和高亮弱轴
 
 ### 论文图示
 

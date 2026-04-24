@@ -57,19 +57,11 @@ python3 scripts/visualize_parking_lot_example.py
 
 ## 默认示例数据
 
-默认的仿真输入已经随仓库提供：
-
-- [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
-
-停车场 source frame 和初始位姿元数据也已随仓库提供：
-
-- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd)
-- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt)
-
-prior map 体积较大，不随仓库提交。请从 README 中的真实场景数据链接下载，并放置为：
+小型 demo 输入放在 `DCReg/data/`。完整数据包，包括停车场大尺寸 prior
+map，见 README 中的数据链接。运行停车场 demo 时，把下载的地图放置为：
 
 ```text
-DCReg/dataset/Parking-Lot-example/prior_map.pcd
+DCReg/data/Parking-Lot-example/prior_map.pcd
 ```
 
 ## 可执行程序

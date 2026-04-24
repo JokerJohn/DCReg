@@ -379,7 +379,12 @@ python3 scripts/visualize_parking_lot_example.py</code></pre>
 
         <article class="card" id="en-results">
           <h2>Verified Results</h2>
-          <h3>Minimal Example Log</h3>
+          <h3>Module-Level Log (<code>dcreg_minimal_example</code>)</h3>
+          <p>
+            This executable uses a synthetic linear system to expose the three DCReg modules.
+            It intentionally does not report RMSE, fitness, or runtime because no point-cloud
+            registration is executed.
+          </p>
           <pre><code>Synthetic DCReg example
 [Module 1] Spectral degeneracy detection
 cond_full: 1122.345689
@@ -425,7 +430,8 @@ qr_fallback: 0</code></pre>
             The bundled <code>pk01-1976</code> frame converges in 5 iterations with RMSE 0.053225,
             fitness 0.060365, and degeneracy mask <code>000100</code>, corresponding to a weak
             physical <code>x</code> translation axis. The target map shown below is a <code>100 m</code>
-            local crop around the final pose.
+            local crop around the final pose. Runtime is machine-dependent; the local TBB
+            validation run is about 1.8 ms.
           </p>
           <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
           <div class="figure-grid">
@@ -575,7 +581,11 @@ python3 scripts/visualize_parking_lot_example.py</code></pre>
 
         <article class="card" id="zh-results">
           <h2>结果与日志</h2>
-          <h3>最小示例日志</h3>
+          <h3>模块级日志（<code>dcreg_minimal_example</code>）</h3>
+          <p>
+            这个程序使用合成线性系统展示 DCReg 三个核心模块。由于它不执行点云配准，
+            因此不会输出 RMSE、fitness 或运行时间。
+          </p>
           <pre><code>Synthetic DCReg example
 [Module 1] Spectral degeneracy detection
 cond_full: 1122.345689
@@ -621,7 +631,8 @@ qr_fallback: 0</code></pre>
             当前 <code>pk01-1976</code> 案例 5 次迭代收敛，RMSE 为 0.053225，
             fitness 为 0.060365，退化掩码为 <code>000100</code>，对应物理
             <code>x</code> 平移方向弱观测。下图中的 target map 是最终位姿附近的
-            <code>100 m</code> 局部地图。
+            <code>100 m</code> 局部地图。运行时间与机器和并行后端相关，本地 TBB
+            验证约为 1.8 ms。
           </p>
           <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
         </article>

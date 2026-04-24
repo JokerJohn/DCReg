@@ -21,6 +21,10 @@
 - 模块 2：物理轴退化表征
 - 模块 3：预条件线性求解
 
+这个最小示例使用的是合成线性系统，不执行点云配准，因此不会输出
+RMSE、fitness 或运行时间。配准指标由 `dcreg_runner` 和
+`dcreg_parking_lot_example` 输出。
+
 ## 可视化结果
 
 ### 停车场真实场景 Demo
@@ -35,6 +39,7 @@ source frame 和初始位姿元数据；prior map 体积较大，仍通过 READM
 - 迭代次数：5
 - 最终 RMSE：0.053225
 - 最终 fitness：0.060365
+- 运行时间：与机器和并行后端相关；本地 TBB 验证约为 1.8 ms
 - 退化掩码：`000100`，对应物理 `x` 平移方向弱观测
 - 可视化：黑色背景、按 intensity 着色的 target/source 点云、`100 m` 局部 target map、紧凑退化诊断卡片和高亮弱轴
 

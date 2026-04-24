@@ -21,6 +21,10 @@ The default `shifted_cylinder` experiment was re-validated after the full DCReg 
 - Module 2: physical-axis characterization
 - Module 3: preconditioned linear solve
 
+This minimal example uses a synthetic linear system, so it does not print RMSE,
+fitness, or runtime. Those registration metrics are reported by `dcreg_runner`
+and `dcreg_parking_lot_example`.
+
 ## Visual Results
 
 ### Parking-Lot Real-Scene Demo
@@ -37,6 +41,7 @@ Current exported diagnostics for the bundled `pk01-1976` frame:
 - Iterations: 5
 - Final RMSE: 0.053225
 - Final fitness: 0.060365
+- Runtime: machine-dependent; about 1.8 ms on the local TBB validation run
 - Degenerate mask: `000100`, corresponding to a weak physical `x` translation axis
 - Visualization: black background, intensity-colored target/source clouds, `100 m` local target-map crop, compact degeneracy card, and highlighted weak axis
 

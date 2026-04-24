@@ -120,7 +120,11 @@ DCReg/data/Parking-Lot-example/prior_map.pcd
 - `dcreg_runner`: runs the verified synthetic registration pipeline and compares four parameterizations under the same implementation.
 - `dcreg_parking_lot_example`: runs a real parking-lot single-frame-to-map registration case and exports visualization artifacts.
 
-### Representative Minimal-Example Log
+### Representative Module-Level Log (`dcreg_minimal_example`)
+
+`dcreg_minimal_example` is a synthetic linear-system example for showing the
+three DCReg modules. It does not run point-cloud registration, so it
+intentionally does not print RMSE, fitness, or runtime metrics.
 
 ```text
 Synthetic DCReg example
@@ -151,6 +155,24 @@ preconditioned_delta:  0.190398 -0.306306 -2.620922  0.095321 -0.515479 41.99756
 pcg_iterations: 6
 pcg_relative_residual: 0.000000
 qr_fallback: 0
+```
+
+### Representative Registration Log (`dcreg_parking_lot_example`)
+
+Registration metrics are emitted by `dcreg_runner` and
+`dcreg_parking_lot_example`. Runtime depends on the machine and parallel
+backend; the excerpt below shows the bundled parking-lot case on a local TBB
+run:
+
+```text
+[Registration] Full real-scene matching
+Test case: parking_lot_pk01
+Algorithm: DCReg | Parameterization: SO3 | Parallel: TBB
+Status: converged in 5 iterations
+RMSE: 0.053225 | Fitness: 0.060365 | Time(ms): 1.86
+Pose error: unavailable (no ground-truth pose for this case)
+DCReg solver: pcg_iterations=6, relative_residual=0.000000, qr_fallback=0
+Observability: schur_rot=1.957423, schur_trans=12.714237, mask=000100
 ```
 
 ## Method Overview

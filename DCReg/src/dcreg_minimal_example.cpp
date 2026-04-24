@@ -35,24 +35,24 @@ std::string MaskString(const std::array<bool, 6>& mask) {
   return text;
 }
 
-void PrintContributionMatrix(const std::string& title,
-                             const std::array<const char*, 3>& row_labels,
-                             const std::array<const char*, 3>& col_labels,
-                             const Eigen::Matrix3d& ratios) {
-  const std::ios::fmtflags original_flags = std::cout.flags();
+// ===== BEGIN CHANGE: clearer spectral-mode contribution log =====
+void PrintContributionModes(const std::string& title,
+                            const std::string& mode_prefix,
+                            const std::array<const char*, 3>& axis_labels,
+                            const Eigen::Matrix3d& ratios) {
   std::cout << title << '\n';
-  std::cout << "                " << std::right << std::setw(12) << col_labels[0]
-            << std::setw(12) << col_labels[1] << std::setw(12) << col_labels[2]
-            << '\n';
-  for (int row = 0; row < 3; ++row) {
-    std::cout << std::left << std::setw(16) << row_labels[row];
-    for (int col = 0; col < 3; ++col) {
-      std::cout << std::right << std::setw(12) << ratios(row, col);
+  for (int mode = 0; mode < 3; ++mode) {
+    std::cout << "  " << mode_prefix << mode << " = ";
+    for (int axis = 0; axis < 3; ++axis) {
+      if (axis > 0) {
+        std::cout << " + ";
+      }
+      std::cout << ratios(axis, mode) << "*" << axis_labels[axis];
     }
     std::cout << '\n';
   }
-  std::cout.flags(original_flags);
 }
+// ===== END CHANGE: clearer spectral-mode contribution log =====
 
 }  // namespace
 
@@ -73,10 +73,6 @@ int main() {
 
   const std::array<const char*, 3> kRotAxisLabels = {"roll", "pitch", "yaw"};
   const std::array<const char*, 3> kTransAxisLabels = {"x", "y", "z"};
-  const std::array<const char*, 3> kRotModeLabels = {"mode_r", "mode_p",
-                                                     "mode_y"};
-  const std::array<const char*, 3> kTransModeLabels = {"mode_x", "mode_y",
-                                                       "mode_z"};
 
   std::cout << std::fixed << std::setprecision(6);
   std::cout << "Synthetic DCReg example\n";
@@ -97,12 +93,12 @@ int main() {
             << characterization.aligned_lambda_schur_rot.transpose() << '\n';
   std::cout << "aligned_lambda_xyz: "
             << characterization.aligned_lambda_schur_trans.transpose() << '\n';
-  PrintContributionMatrix("rot_axis_contribution_ratio(rows=rpy, cols=aligned_rpy):",
-                          kRotAxisLabels, kRotModeLabels,
-                          characterization.rot_axis_contribution_ratio);
-  PrintContributionMatrix(
-      "trans_axis_contribution_ratio(rows=xyz, cols=aligned_xyz):",
-      kTransAxisLabels, kTransModeLabels,
+  PrintContributionModes(
+      "rot_axis_contribution_ratio(each r_i as physical-axis mixture):", "r",
+      kRotAxisLabels, characterization.rot_axis_contribution_ratio);
+  PrintContributionModes(
+      "trans_axis_contribution_ratio(each t_i as physical-axis mixture):", "t",
+      kTransAxisLabels,
       characterization.trans_axis_contribution_ratio);
   std::cout << "clamped_lambda_rpy: "
             << characterization.clamped_lambda_schur_rot.transpose() << '\n';

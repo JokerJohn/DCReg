@@ -135,16 +135,14 @@ raw_lambda_rot:  1.001796 19.881966 36.152505
 raw_lambda_trans:  0.032394 12.252030 24.038714
 aligned_lambda_rpy: 36.152505 19.881966  1.001796
 aligned_lambda_xyz: 24.038714 12.252030  0.032394
-rot_axis_contribution_ratio(rows=rpy, cols=aligned_rpy):
-                      mode_r      mode_p      mode_y
-roll                0.995659    0.000004    0.004337
-pitch               0.000001    0.999791    0.000208
-yaw                 0.004340    0.000205    0.995456
-trans_axis_contribution_ratio(rows=xyz, cols=aligned_xyz):
-                      mode_x      mode_y      mode_z
-x                   0.999989    0.000000    0.000011
-y                   0.000000    0.999834    0.000166
-z                   0.000011    0.000166    0.999823
+rot_axis_contribution_ratio(each r_i as physical-axis mixture):
+  r0 = 0.995659*roll + 0.000001*pitch + 0.004340*yaw
+  r1 = 0.000004*roll + 0.999791*pitch + 0.000205*yaw
+  r2 = 0.004337*roll + 0.000208*pitch + 0.995456*yaw
+trans_axis_contribution_ratio(each t_i as physical-axis mixture):
+  t0 = 0.999989*x + 0.000000*y + 0.000011*z
+  t1 = 0.000000*x + 0.999834*y + 0.000166*z
+  t2 = 0.000011*x + 0.000166*y + 0.999823*z
 clamped_lambda_rpy: 36.152505 19.881966  3.615250
 clamped_lambda_xyz: 24.038714 12.252030  2.403871
 

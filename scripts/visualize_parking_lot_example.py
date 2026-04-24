@@ -333,11 +333,22 @@ def make_axis_geometry(o3d, transform: np.ndarray, diagnostics: dict):
     return geometries, labels
 
 
-def print_matrix(title: str, row_labels: tuple[str, ...], values: list[list[float]]) -> None:
+# ===== BEGIN CHANGE: clearer spectral-mode contribution log =====
+def print_contribution_modes(
+    title: str,
+    mode_prefix: str,
+    axis_labels: tuple[str, ...],
+    values: list[list[float]],
+) -> None:
     matrix = np.asarray(values, dtype=float)
     print(title)
-    for label, row in zip(row_labels, matrix):
-        print(f"  {label:>5s}: " + " ".join(f"{value:8.4f}" for value in row))
+    for mode in range(matrix.shape[1]):
+        terms = [
+            f"{matrix[axis, mode]:.4f}*{axis_labels[axis]}"
+            for axis in range(matrix.shape[0])
+        ]
+        print(f"  {mode_prefix}{mode} = " + " + ".join(terms))
+# ===== END CHANGE: clearer spectral-mode contribution log =====
 
 
 def print_notes(diagnostics: dict) -> None:
@@ -354,13 +365,15 @@ def print_notes(diagnostics: dict) -> None:
     print(f"Degenerate mask [roll pitch yaw x y z]: {mask}")
     print(f"Schur condition, rotation: {degeneracy['cond_schur_rot']:.6f}")
     print(f"Schur condition, translation: {degeneracy['cond_schur_trans']:.6f}")
-    print_matrix(
-        "Rotation contribution ratio, rows=rpy cols=aligned_rpy:",
+    print_contribution_modes(
+        "Rotation contribution ratio, each r_i as physical-axis mixture:",
+        "r",
         ROT_LABELS,
         degeneracy["rot_axis_contribution_ratio"],
     )
-    print_matrix(
-        "Translation contribution ratio, rows=xyz cols=aligned_xyz:",
+    print_contribution_modes(
+        "Translation contribution ratio, each t_i as physical-axis mixture:",
+        "t",
         TRANS_LABELS,
         degeneracy["trans_axis_contribution_ratio"],
     )

@@ -12,6 +12,7 @@ find_package(OpenMP QUIET)
 
 add_executable(dcreg_runner src/main.cpp)
 add_executable(dcreg_minimal_example src/dcreg_minimal_example.cpp)
+add_executable(dcreg_parking_lot_example src/dcreg_parking_lot_example.cpp)
 
 function(configure_dcreg_target target_name)
   target_include_directories(
@@ -42,3 +43,4 @@ endfunction()
 
 configure_dcreg_target(dcreg_runner)
 configure_dcreg_target(dcreg_minimal_example)
+configure_dcreg_target(dcreg_parking_lot_example)

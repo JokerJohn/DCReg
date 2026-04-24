@@ -16,7 +16,7 @@
 - TBB
 - OpenMP
 
-`main` 分支已不再需要：
+这些依赖不再属于 C++ 核心算法：
 
 - Ceres
 - yaml-cpp
@@ -38,15 +38,42 @@ cmake --build DCReg/build -j8
 ./DCReg/build/dcreg_runner
 ```
 
+## 停车场真实场景 Demo
+
+编译并运行单帧 LiDAR 到先验地图的真实场景匹配案例：
+
+```bash
+cmake --build DCReg/build -j8 --target dcreg_parking_lot_example
+./DCReg/build/dcreg_parking_lot_example
+```
+
+C++ runner 仍然保持轻量依赖边界：`Eigen + PCL`，`TBB/OpenMP` 可选。
+Open3D 只用于独立的 Python 可视化脚本，不影响原始算法编译依赖：
+
+```bash
+python3 -m pip install open3d numpy pillow
+python3 scripts/visualize_parking_lot_example.py
+```
+
 ## 默认示例数据
 
 默认的仿真输入已经随仓库提供：
 
 - [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)
 
-停车场真实数据案例仍然保留在代码中，但需要你自行改成本地数据路径。
+停车场 source frame 和初始位姿元数据也已随仓库提供：
+
+- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd)
+- [`DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt)
+
+prior map 体积较大，不随仓库提交。请从 README 中的真实场景数据链接下载，并放置为：
+
+```text
+DCReg/dataset/Parking-Lot-example/prior_map.pcd
+```
 
 ## 可执行程序
 
 - `dcreg_minimal_example`：直接输出 DCReg 的三个核心模块
 - `dcreg_runner`：运行已验证的默认仿真流程并比较不同参数化结果
+- `dcreg_parking_lot_example`：运行停车场真实场景单帧到地图匹配案例

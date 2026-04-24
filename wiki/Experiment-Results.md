@@ -23,6 +23,25 @@ The default `shifted_cylinder` experiment was re-validated after the full DCReg 
 
 ## Visual Results
 
+### Parking-Lot Real-Scene Demo
+
+The parking-lot example registers one LiDAR frame against a prior map from a
+real localization scene. The repository bundles the source frame and initial
+pose metadata; the large prior map remains external and is linked from the
+README.
+
+![Parking-lot DCReg visualization](https://raw.githubusercontent.com/JokerJohn/DCReg/main/README/parking_lot_dcreg_visualization.png)
+
+Current exported diagnostics for the bundled `pk01-1976` frame:
+
+- Iterations: 5
+- Final RMSE: 0.053225
+- Final fitness: 0.060365
+- Degenerate mask: `000100`, corresponding to a weak physical `x` translation axis
+- Visualization: black background, intensity-colored target/source clouds, compact degeneracy card, and highlighted weak axis
+
+### Paper Figures
+
 | Demo | Characterization |
 | --- | --- |
 | ![PK01](https://raw.githubusercontent.com/JokerJohn/DCReg/main/README/8391c3ce-45dc-4b86-aed7-b496dc33ba87.gif) | ![Characterization](https://raw.githubusercontent.com/JokerJohn/DCReg/main/README/image-20250910213549613.png) |

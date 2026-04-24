@@ -749,6 +749,20 @@ inline LinearSystem BuildEulerLinearSystem(
       });
 }
 
+inline void UpdatePoseErrorIfAvailable(const TestCase& test_case,
+                                       const Eigen::Matrix4d& transform,
+                                       RegistrationResult* result) {
+  if (!test_case.has_ground_truth_pose) {
+    result->has_pose_error = false;
+    result->pose_error.translation_m = std::numeric_limits<double>::quiet_NaN();
+    result->pose_error.rotation_deg = std::numeric_limits<double>::quiet_NaN();
+    return;
+  }
+  result->pose_error =
+      CalculatePoseError(PoseToMatrix(test_case.ground_truth_pose), transform);
+  result->has_pose_error = true;
+}
+
 template <typename State, typename TransformFn, typename BuildSystemFn,
           typename UpdateFn>
 inline RegistrationResult RunPlainRegistration(
@@ -762,7 +776,6 @@ inline RegistrationResult RunPlainRegistration(
   pcl::KdTreeFLANN<PointT> target_kdtree;
   target_kdtree.setInputCloud(target.makeShared());
 
-  const Eigen::Matrix4d gt = PoseToMatrix(test_case.ground_truth_pose);
   const SolverParameters& params = test_case.params;
 
   Stopwatch total_timer;
@@ -781,7 +794,7 @@ inline RegistrationResult RunPlainRegistration(
       result.iterations = iteration;
       result.time_ms = total_timer.ElapsedMilliseconds();
       result.transform = current_transform;
-      result.pose_error = CalculatePoseError(gt, result.transform);
+      UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
       return result;
     }
 
@@ -793,7 +806,7 @@ inline RegistrationResult RunPlainRegistration(
       result.iterations = iteration;
       result.time_ms = total_timer.ElapsedMilliseconds();
       result.transform = current_transform;
-      result.pose_error = CalculatePoseError(gt, result.transform);
+      UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
       return result;
     }
 
@@ -822,7 +835,7 @@ inline RegistrationResult RunPlainRegistration(
 
   result.success = result.converged;
   result.time_ms = total_timer.ElapsedMilliseconds();
-  result.pose_error = CalculatePoseError(gt, result.transform);
+  UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
   if (!result.converged && result.failure_reason.empty()) {
     result.failure_reason = "reached max_iterations without convergence";
   }
@@ -842,7 +855,6 @@ inline RegistrationResult RunDcRegRegistration(
   pcl::KdTreeFLANN<PointT> target_kdtree;
   target_kdtree.setInputCloud(target.makeShared());
 
-  const Eigen::Matrix4d gt = PoseToMatrix(test_case.ground_truth_pose);
   const SolverParameters& params = test_case.params;
 
   Stopwatch total_timer;
@@ -861,7 +873,7 @@ inline RegistrationResult RunDcRegRegistration(
       result.iterations = iteration;
       result.time_ms = total_timer.ElapsedMilliseconds();
       result.transform = current_transform;
-      result.pose_error = CalculatePoseError(gt, result.transform);
+      UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
       return result;
     }
 
@@ -878,7 +890,7 @@ inline RegistrationResult RunDcRegRegistration(
       result.iterations = iteration;
       result.time_ms = total_timer.ElapsedMilliseconds();
       result.transform = current_transform;
-      result.pose_error = CalculatePoseError(gt, result.transform);
+      UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
       return result;
     }
 
@@ -915,7 +927,7 @@ inline RegistrationResult RunDcRegRegistration(
 
   result.success = result.converged;
   result.time_ms = total_timer.ElapsedMilliseconds();
-  result.pose_error = CalculatePoseError(gt, result.transform);
+  UpdatePoseErrorIfAvailable(test_case, result.transform, &result);
   if (!result.converged && result.failure_reason.empty()) {
     result.failure_reason = "reached max_iterations without convergence";
   }
@@ -1045,20 +1057,24 @@ inline void PrintSummary(const TestCase& test_case, const RunOptions& options,
   std::cout << "Algorithm: " << ToString(options.algorithm)
             << " | Parameterization: " << ToString(options.parameterization)
             << " | Parallel: " << ToString(result.resolved_parallel_mode) << '\n';
-  if (!result.success) {
-    std::cout << "Status: failed";
+  if (result.success) {
+    std::cout << "Status: converged in " << result.iterations << " iterations\n";
+  } else {
+    std::cout << "Status: failed after " << result.iterations << " iterations";
     if (!result.failure_reason.empty()) {
       std::cout << " (" << result.failure_reason << ")";
     }
     std::cout << '\n';
-    return;
   }
 
-  std::cout << "Status: converged in " << result.iterations << " iterations\n";
   std::cout << "RMSE: " << result.rmse << " | Fitness: " << result.fitness
             << " | Time(ms): " << result.time_ms << '\n';
-  std::cout << "Pose error: translation=" << result.pose_error.translation_m
-            << " m, rotation=" << result.pose_error.rotation_deg << " deg\n";
+  if (result.has_pose_error) {
+    std::cout << "Pose error: translation=" << result.pose_error.translation_m
+              << " m, rotation=" << result.pose_error.rotation_deg << " deg\n";
+  } else {
+    std::cout << "Pose error: unavailable (no ground-truth pose for this case)\n";
+  }
   if (!result.history.empty() && options.algorithm == Algorithm::kDCReg) {
     const IterationSummary& last = result.history.back();
     std::cout << "DCReg solver: pcg_iterations="

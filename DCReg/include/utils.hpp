@@ -106,6 +106,7 @@ struct TestCase {
   std::string target_pcd;
   Pose6D initial_pose;
   Pose6D ground_truth_pose;
+  bool has_ground_truth_pose = true;
   SolverParameters params;
 };
 
@@ -137,6 +138,7 @@ struct IterationSummary {
 struct RegistrationResult {
   bool success = false;
   bool converged = false;
+  bool has_pose_error = false;
   int iterations = 0;
   double time_ms = 0.0;
   double rmse = std::numeric_limits<double>::quiet_NaN();
@@ -176,6 +178,18 @@ inline Pose6D PoseFromDegrees(double x, double y, double z, double roll_deg,
   pose.roll = DegToRad(roll_deg);
   pose.pitch = DegToRad(pitch_deg);
   pose.yaw = DegToRad(yaw_deg);
+  return pose;
+}
+
+inline Pose6D PoseFromRadians(double x, double y, double z, double roll,
+                              double pitch, double yaw) {
+  Pose6D pose;
+  pose.x = x;
+  pose.y = y;
+  pose.z = z;
+  pose.roll = roll;
+  pose.pitch = pitch;
+  pose.yaw = yaw;
   return pose;
 }
 
@@ -635,16 +649,18 @@ inline const TestCase kShiftedCylinderLongRunCase = [] {
 inline const TestCase kParkingLotPk01Case = [] {
   TestCase test_case;
   test_case.name = "parking_lot_pk01";
-  test_case.folder_path = "/home/xchu/data/ltloc_result/parkinglot_raw_test/";
-  test_case.source_pcd = "parkinglot_raw_2415_frame.pcd";
-  test_case.target_pcd = "target_prior_map.pcd";
-  test_case.initial_pose = PoseFromDegrees(
-      -109.979288618688, -395.174034820224, -0.900523132121, -2.650863295637,
-      -2.836418366839, 120.142832419935);
-  test_case.ground_truth_pose =
-      PoseFromDegrees(-109.831089, -395.052129, -1.025780, -2.635654,
-                      -4.141885, 117.972711);
+  test_case.folder_path = RepoPath("dataset/Parking-Lot-example/");
+  test_case.source_pcd = "parkinglot_raw_1976_frame.pcd";
+  test_case.target_pcd = "prior_map.pcd";
+  test_case.initial_pose = PoseFromRadians(
+      -85.258712146960, -464.541500829005, -1.092934540703, 0.019508452196,
+      0.220824202961, 2.841990977838);
+  test_case.has_ground_truth_pose = false;
   test_case.params.search_radius = 0.5;
+  test_case.params.max_iterations = 30;
+  test_case.params.convergence_trans = 1e-3;
+  test_case.params.convergence_rot = 1e-5;
+  test_case.params.plane_fit_neighbors = 5;
   return test_case;
 }();
 

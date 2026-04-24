@@ -268,6 +268,7 @@
         <a href="#en-overview">Overview</a>
         <a href="#en-algorithm">Algorithm</a>
         <a href="#en-install">Installation</a>
+        <a href="#en-parking">Parking-Lot Demo</a>
         <a href="#en-results">Results</a>
         <a href="#en-demo">Demo Gallery</a>
         <a href="#en-theory">Technical Insights</a>
@@ -284,9 +285,9 @@
           </p>
           <div class="stat-grid">
             <div class="stat"><strong>3</strong><span>core modules</span></div>
-            <div class="stat"><strong>2</strong><span>runnable executables</span></div>
+            <div class="stat"><strong>3</strong><span>runnable executables</span></div>
             <div class="stat"><strong>1</strong><span>repo-local default simulation</span></div>
-            <div class="stat"><strong>0</strong><span>Ceres / yaml-cpp / Open3D dependency on main</span></div>
+            <div class="stat"><strong>0</strong><span>Ceres / yaml-cpp / Open3D dependency in the C++ core</span></div>
           </div>
           <img class="figure-wide" src="../../README/image-20250923182814673.png" alt="DCReg overview">
         </article>
@@ -332,8 +333,20 @@ cmake --build DCReg/build -j8</code></pre>
           <p>
             The default simulation case is repo-local and uses
             <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>.
-            The parking-lot case remains available in code and can be enabled by editing the test case
-            definitions in <code>DCReg/include/utils.hpp</code>.
+            The parking-lot source frame and pose metadata are also bundled under
+            <code>DCReg/dataset/Parking-Lot-example/</code>. The large prior map is external and should
+            be downloaded from the README data link as <code>prior_map.pcd</code>.
+          </p>
+          <h3 id="en-parking">Parking-Lot Real-Scene Demo</h3>
+          <pre><code>cmake --build DCReg/build -j8 --target dcreg_parking_lot_example
+./DCReg/build/dcreg_parking_lot_example
+
+# Optional Python-only visualization helper.
+python3 -m pip install open3d numpy pillow
+python3 scripts/visualize_parking_lot_example.py</code></pre>
+          <p>
+            The C++ demo still depends only on Eigen and PCL. Open3D is used only by the optional
+            visualization script.
           </p>
           <h3>Current Outputs</h3>
           <table>
@@ -354,6 +367,11 @@ cmake --build DCReg/build -j8</code></pre>
                 <td><code>dcreg_runner</code></td>
                 <td>Full simulation runner</td>
                 <td>Per-parameterization accuracy table</td>
+              </tr>
+              <tr>
+                <td><code>dcreg_parking_lot_example</code></td>
+                <td>Real-scene single-frame-to-map registration</td>
+                <td>Registration log and visualization export</td>
               </tr>
             </tbody>
           </table>
@@ -402,6 +420,13 @@ qr_fallback: 0</code></pre>
               <tr><td>Quaternion</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
             </tbody>
           </table>
+          <h3>Parking-Lot Real-Scene Export</h3>
+          <p>
+            The bundled <code>pk01-1976</code> frame converges in 5 iterations with RMSE 0.053225,
+            fitness 0.060365, and degeneracy mask <code>000100</code>, corresponding to a weak
+            physical <code>x</code> translation axis.
+          </p>
+          <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
           <div class="figure-grid">
             <img class="figure" src="../../README/image-20250923174833727.png" alt="Output files">
             <img class="figure" src="../../README/image-20250923174918310.png" alt="Summary files">
@@ -469,6 +494,7 @@ qr_fallback: 0</code></pre>
         <a href="#zh-overview">概览</a>
         <a href="#zh-algorithm">算法流程</a>
         <a href="#zh-install">安装与运行</a>
+        <a href="#zh-parking">停车场 Demo</a>
         <a href="#zh-results">结果与日志</a>
         <a href="#zh-demo">可视化示例</a>
         <a href="#zh-theory">理论说明</a>
@@ -484,9 +510,9 @@ qr_fallback: 0</code></pre>
           </p>
           <div class="stat-grid">
             <div class="stat"><strong>3</strong><span>个核心模块</span></div>
-            <div class="stat"><strong>2</strong><span>个可直接运行的程序</span></div>
+            <div class="stat"><strong>3</strong><span>个可直接运行的程序</span></div>
             <div class="stat"><strong>1</strong><span>个仓库内置默认仿真实验</span></div>
-            <div class="stat"><strong>0</strong><span>主分支不再依赖 Ceres / yaml-cpp / Open3D</span></div>
+            <div class="stat"><strong>0</strong><span>C++ 核心不再依赖 Ceres / yaml-cpp / Open3D</span></div>
           </div>
           <img class="figure-wide" src="../../README/image-20250923182814673.png" alt="DCReg overview">
         </article>
@@ -522,10 +548,7 @@ qr_fallback: 0</code></pre>
         <article class="card" id="zh-install">
           <h2>安装与运行</h2>
           <h3>编译</h3>
-          <pre><code>cd DCReg
-mkdir -p build
-cd build
-cmake ..
+          <pre><code>cmake -S DCReg -B DCReg/build
 cmake --build DCReg/build -j8</code></pre>
           <h3>运行</h3>
           <pre><code>./DCReg/build/dcreg_minimal_example
@@ -533,8 +556,19 @@ cmake --build DCReg/build -j8</code></pre>
           <p>
             主分支默认仿真数据已经放在仓库内：
             <code>DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd</code>。
-            停车场真实场景案例仍保留在代码中，但需要你在
-            <code>DCReg/include/utils.hpp</code> 里改成本地数据路径。
+            停车场 source frame 和初始位姿元数据也已经放在
+            <code>DCReg/dataset/Parking-Lot-example/</code>。prior map 体积较大，
+            请从 README 数据链接下载并命名为 <code>prior_map.pcd</code>。
+          </p>
+          <h3 id="zh-parking">停车场真实场景 Demo</h3>
+          <pre><code>cmake --build DCReg/build -j8 --target dcreg_parking_lot_example
+./DCReg/build/dcreg_parking_lot_example
+
+# 可选 Python 可视化，不影响 C++ 核心依赖。
+python3 -m pip install open3d numpy pillow
+python3 scripts/visualize_parking_lot_example.py</code></pre>
+          <p>
+            这个 C++ demo 仍然只依赖 Eigen 和 PCL。Open3D 只用于独立的 Python 可视化脚本。
           </p>
         </article>
 
@@ -581,6 +615,13 @@ qr_fallback: 0</code></pre>
               <tr><td>Quaternion</td><td>10</td><td>0.0315708</td><td>0.116636</td><td>0.0271196</td><td>0.0507195</td><td>6</td><td>0</td></tr>
             </tbody>
           </table>
+          <h3>停车场真实场景导出</h3>
+          <p>
+            当前 <code>pk01-1976</code> 案例 5 次迭代收敛，RMSE 为 0.053225，
+            fitness 为 0.060365，退化掩码为 <code>000100</code>，对应物理
+            <code>x</code> 平移方向弱观测。
+          </p>
+          <img class="figure-wide" src="../../README/parking_lot_dcreg_visualization.png" alt="Parking-lot DCReg visualization">
         </article>
 
         <article class="card" id="zh-demo">

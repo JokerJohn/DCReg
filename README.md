@@ -53,7 +53,7 @@ Tested on Ubuntu 20.04 with C++17.
 | --- | --- |
 | Required | Eigen3, PCL |
 | Optional | TBB, OpenMP |
-| No longer required | Ceres, `yaml-cpp`, Open3D |
+| Not required by C++ core | Ceres, `yaml-cpp`, Open3D |
 
 ### Build
 
@@ -71,6 +71,32 @@ cmake --build DCReg/build -j8
 ./DCReg/build/dcreg_runner
 ```
 
+### Real-Scene Parking-Lot Demo
+
+The repository also includes a compact real-scene runner:
+
+```bash
+cmake --build DCReg/build -j8 --target dcreg_parking_lot_example
+./DCReg/build/dcreg_parking_lot_example
+```
+
+This runner keeps the core DCReg dependency surface unchanged: the C++ code
+still depends only on `Eigen + PCL` with optional `TBB/OpenMP`. The optional
+Open3D visualizer is a separate Python script:
+
+```bash
+python3 -m pip install open3d numpy pillow
+python3 scripts/visualize_parking_lot_example.py
+```
+
+![Parking-lot DCReg visualization](./README/parking_lot_dcreg_visualization.png)
+
+The visualization uses a black background, intensity-colored point clouds, a
+compact diagnostic card, and the detected weak/degenerate physical axes.
+In the bundled `pk01-1976` frame, the current run converges in 5 iterations
+from the provided prior pose and characterizes the weakest translational
+direction along the physical `x` axis.
+
 ### Bundled Sample Data
 
 The default synthetic input is shipped inside the repository:
@@ -79,12 +105,27 @@ The default synthetic input is shipped inside the repository:
 
 The default `shifted_cylinder` preset in [DCReg/include/utils.hpp](./DCReg/include/utils.hpp) already points to this relative path.
 
-The parking-lot case is still available in code, but it expects your own local real-world data path.
+The parking-lot source frame and initial-pose metadata are also included:
 
-### What The Two Executables Are For
+- [DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd](./DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_frame.pcd)
+- [DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt](./DCReg/dataset/Parking-Lot-example/parkinglot_raw_1976_info.txt)
+
+The prior map is intentionally not committed because it is large. Download it
+from the external real-world data link below and place it as:
+
+```text
+DCReg/dataset/Parking-Lot-example/prior_map.pcd
+```
+
+External real-world data:
+
+- [Cylinder and parking-lot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link)
+
+### What The Executables Are For
 
 - `dcreg_minimal_example`: prints the three core DCReg modules and is the cleanest entry point for integrating the solver into another SLAM system.
 - `dcreg_runner`: runs the verified synthetic registration pipeline and compares four parameterizations under the same implementation.
+- `dcreg_parking_lot_example`: runs a real parking-lot single-frame-to-map registration case and exports visualization artifacts.
 
 ### Representative Minimal-Example Log
 
@@ -160,10 +201,6 @@ The earlier baseline-oriented public release remains available on the separate `
 | Dataset Context | Release Context |
 | --- | --- |
 | ![Dataset](./README/image-20250908194514540.png) | ![Release context](./README/image-20250908194526477.png) |
-
-Additional external real-world test data remains available here:
-
-- [Cylinder and parking-lot frames](https://drive.google.com/drive/folders/1TnS7K7q0hr-7SY__mR8pGQX1PJV3Bzfo?usp=drive_link)
 
 ## Video Demo
 

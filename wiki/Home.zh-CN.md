@@ -11,6 +11,7 @@
 - [算法概览](Algorithm-Overview.zh-CN)
 - [安装与快速开始](Installation-and-Quick-Start.zh-CN)
 - [实验结果](Experiment-Results.zh-CN)
+- [停车场真实场景 Demo](Installation-and-Quick-Start.zh-CN#停车场真实场景-demo)
 
 ## 项目亮点
 
@@ -29,4 +30,5 @@
 
 - 运行时代码位于 [`DCReg/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg)。
 - 默认示例输入位于 [`DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd`](https://github.com/JokerJohn/DCReg/blob/main/DCReg/data/shifted_cylinder/measured_cloud_shifted_cylinder.pcd)。
+- 停车场 source frame 已随仓库放在 [`DCReg/dataset/Parking-Lot-example/`](https://github.com/JokerJohn/DCReg/tree/main/DCReg/dataset/Parking-Lot-example)，大尺寸 prior map 请通过 README 中的数据链接下载后再运行真实场景 demo。
 - 下一步计划是开源一个基于 DCReg 的定位系统，用来展示它如何整合到更完整的算法管线中。

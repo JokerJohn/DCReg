@@ -32,6 +32,7 @@ The `main` branch now contains the **full public DCReg implementation**. The ear
 
 ## News And Timeline
 
+- **2026/04/27**: opened upstream integration PRs for DCReg in [Open3D](https://github.com/isl-org/Open3D/pull/7482) and [PCL](https://github.com/PointCloudLibrary/pcl/pull/6432), bringing degeneracy-aware point-to-plane registration ideas into widely used point-cloud libraries.
 - **2026/04/21**: released the verified full DCReg implementation on `main`.
 - **2026/03/31**: updated the second arXiv version and corrected the theoretical issue in the structured preconditioner analysis.
 - **2026/03/12**: received a **Conditional Acceptance** and started the final clarification and revision cycle.

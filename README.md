@@ -30,6 +30,17 @@ The `main` branch now contains the **full public DCReg implementation**. The ear
 - Targeted preconditioning that stabilizes only the weak directions instead of damping the full coupled system.
 - Lightweight runtime stack: `Eigen + PCL`, with optional `TBB/OpenMP`.
 
+## Citation
+
+```bibtex
+@ARTICLE{hu2026dcreg,
+   title={Dcreg: Decoupled characterization for efficient degenerate lidar registration}, 
+   author={Xiangcheng Hu, Xieyuanli Chen, Mingkai Jia, Jin Wu, Ping Tan, Steven L. Waslander},
+   journal={International Journal of Robotics Research}, 
+   year={2026}
+ }
+```
+
 ## News And Timeline
 
 - **2026/04/27**: opened upstream integration PRs for DCReg in [Open3D](https://github.com/isl-org/Open3D/pull/7482) and [PCL](https://github.com/PointCloudLibrary/pcl/pull/6432), bringing degeneracy-aware point-to-plane registration ideas into widely used point-cloud libraries.
@@ -309,19 +320,6 @@ The earlier baseline-oriented public release remains available on the separate `
 
 Public-facing documentation lives on the [GitHub Wiki](https://github.com/JokerJohn/DCReg/wiki).
 
-## Citation
-
-```bibtex
-@misc{hu2025dcreg,
-  title={DCReg: Decoupled Characterization for Efficient Degenerate LiDAR Registration},
-  author={Xiangcheng Hu and Xieyuanli Chen and Mingkai Jia and Jin Wu and Ping Tan and Steven L. Waslander},
-  year={2025},
-  eprint={2509.06285},
-  archivePrefix={arXiv},
-  primaryClass={cs.RO},
-  url={https://arxiv.org/abs/2509.06285}
-}
-```
 
 ## Acknowledgment
 
